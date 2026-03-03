@@ -2,17 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Banner;
 use App\Models\BranchMaster;
-use App\Models\ComponentTypeMaster;
-use App\Models\GemstoneMaster;
-use App\Models\LaborMaster;
-use App\Models\LocationMaster;
-use App\Models\Material;
-use App\Models\Measurement;
-use App\Models\Product;
-use App\Models\ProductCategoryMaster;
-use App\Models\SupplierMaster;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -22,64 +12,13 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $data['total_Product_category'] = ProductCategoryMaster::where('status', 'Active')->count();
-
         $data['masterCards'] = [
-            [
-                'label' => 'Product Categories',
-                'value' => $data['total_Product_category'],
-                'icon' => 'bx bx-category',
-                'color' => 'primary',
-                'note' => 'Active',
-            ],
             [
                 'label' => 'Branches',
                 'value' => BranchMaster::count(),
                 'icon' => 'bx bx-store',
                 'color' => 'info',
                 'note' => 'All locations',
-            ],
-            [
-                'label' => 'Suppliers',
-                'value' => SupplierMaster::count(),
-                'icon' => 'bx bx-briefcase-alt-2',
-                'color' => 'warning',
-                'note' => 'Approved',
-            ],
-            [
-                'label' => 'Materials',
-                'value' => Material::count(),
-                'icon' => 'bx bx-cube',
-                'color' => 'success',
-                'note' => 'In catalog',
-            ],
-            [
-                'label' => 'Gemstones',
-                'value' => GemstoneMaster::count(),
-                'icon' => 'bx bx-diamond',
-                'color' => 'danger',
-                'note' => 'Active stock',
-            ],
-            [
-                'label' => 'Products',
-                'value' => Product::count(),
-                'icon' => 'bx bx-package',
-                'color' => 'primary',
-                'note' => 'Live items',
-            ],
-            [
-                'label' => 'Locations',
-                'value' => LocationMaster::count(),
-                'icon' => 'bx bx-map',
-                'color' => 'info',
-                'note' => 'Service areas',
-            ],
-            [
-                'label' => 'Component Types',
-                'value' => ComponentTypeMaster::count(),
-                'icon' => 'bx bx-layer',
-                'color' => 'secondary',
-                'note' => 'Available',
             ],
         ];
 

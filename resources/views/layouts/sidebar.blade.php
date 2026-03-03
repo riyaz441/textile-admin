@@ -71,85 +71,9 @@
                                 Branch
                             </a>
                         </li>
-
-                        <li class="menu-item {{ request()->is('locations*') ? 'active' : '' }}">
-                            <a href="{{ route('locations.index') }}" class="menu-link">
-                                Location
-                            </a>
-                        </li>
-
-                        <li class="menu-item {{ request()->is('suppliers*') ? 'active' : '' }}">
-                            <a href="{{ route('suppliers.index') }}" class="menu-link">
-                                Supplier
-                            </a>
-                        </li>
-                        <li class="menu-item {{ request()->is('labors*') ? 'active' : '' }}">
-                            <a href="{{ route('labors.index') }}" class="menu-link">
-                                Labor
-                            </a>
-                        </li>
                     </ul>
                 </li>
-
-                <!-- Product Menu -->
-                <li
-                    class="menu-item
-            {{ request()->is('product-categories*', 'component-types*', 'materials*', 'gemstones*', 'measurements*') ? 'active open' : '' }}">
-                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                        <div class="text-truncate">Product Master</div>
-                    </a>
-
-                    <ul class="menu-sub">
-                        <li class="menu-item {{ request()->is('product-categories*') ? 'active' : '' }}">
-                            <a href="{{ route('product-categories.index') }}" class="menu-link">
-                                Category
-                            </a>
-                        </li>
-                        <li class="menu-item {{ request()->is('component-types*') ? 'active' : '' }}">
-                            <a href="{{ route('component-types.index') }}" class="menu-link">
-                                Component Type
-                            </a>
-                        </li>
-
-                        <li class="menu-item {{ request()->is('materials*') ? 'active' : '' }}">
-                            <a href="{{ route('materials.index') }}" class="menu-link">
-                                Material
-                            </a>
-                        </li>
-
-                        <li class="menu-item {{ request()->is('gemstones*') ? 'active' : '' }}">
-                            <a href="{{ route('gemstones.index') }}" class="menu-link">
-                                Gemstone
-                            </a>
-                        </li>
-
-                        <li class="menu-item {{ request()->is('measurements*') ? 'active' : '' }}">
-                            <a href="{{ route('measurements.index') }}" class="menu-link">
-                                Measurement
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
             </ul>
-        </li>
-
-
-        <!-- Product -->
-        <li
-            class="menu-item {{ request()->is('products') || request()->is('products/form') || request()->is('products/form/*') || request()->is('products/*') ? 'active' : '' }}">
-            <a href="{{ route('products.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-box"></i>
-                <div class="text-truncate" data-i18n="Products">Products</div>
-            </a>
-        </li>
-
-        <!-- Inventory Stock -->
-        <li class="menu-item {{ request()->is('inventory-stocks*') ? 'active' : '' }}">
-            <a href="{{ route('inventory-stocks.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-archive"></i>
-                <div class="text-truncate">Inventory Stocks</div>
-            </a>
         </li>
 
         <!-- Settings -->
