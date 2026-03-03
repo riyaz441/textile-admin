@@ -1,0 +1,111 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class GemstoneSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        DB::table('gemstones')->insert([
+            [
+                'company_id' => 2,
+                'branch_id' => 2,
+                'gemstone_name' => 'Brilliant Diamond',
+                'type' => 'diamond',
+                'color' => 'White',
+                'clarity' => 'VVS1',
+                'cut_grade' => 'Excellent',
+                'default_carat_weight' => 1.00,
+                'gemstone_code' => 'DIA001',
+                'shape' => 'Round',
+                'cut' => 'Brilliant',
+                'measurement_length' => 6.50,
+                'measurement_width' => 6.50,
+                'measurement_depth' => 4.00,
+                'treatment' => null,
+                'origin' => 'South Africa',
+                'fluorescence' => 'None',
+                'symmetry' => 'Excellent',
+                'polish' => 'Excellent',
+                'girdle' => 'Medium',
+                'culet' => 'None',
+                'table_percentage' => 57.0,
+                'depth_percentage' => 61.5,
+                'certification_lab' => 'GIA',
+                'certification_number' => '123456789',
+                'certification_date' => '2025-01-15',
+                'status' => 'Active',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'company_id' => 2,
+                'branch_id' => 2,
+                'gemstone_name' => 'Royal Ruby',
+                'type' => 'ruby',
+                'color' => 'Red',
+                'clarity' => 'VS1',
+                'cut_grade' => 'Very Good',
+                'default_carat_weight' => 2.10,
+                'gemstone_code' => 'RUB001',
+                'shape' => 'Oval',
+                'cut' => 'Mixed',
+                'measurement_length' => 8.00,
+                'measurement_width' => 6.00,
+                'measurement_depth' => 4.50,
+                'treatment' => 'Heated',
+                'origin' => 'Myanmar',
+                'fluorescence' => 'Faint',
+                'symmetry' => 'Very Good',
+                'polish' => 'Very Good',
+                'girdle' => 'Slightly Thick',
+                'culet' => 'None',
+                'table_percentage' => 60.0,
+                'depth_percentage' => 62.0,
+                'certification_lab' => 'IGI',
+                'certification_number' => '987654321',
+                'certification_date' => '2025-02-20',
+                'status' => 'Active',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'company_id' => 2,
+                'branch_id' => 2,
+                'gemstone_name' => 'Emerald Green',
+                'type' => 'emerald',
+                'color' => 'Green',
+                'clarity' => 'SI1',
+                'cut_grade' => 'Good',
+                'default_carat_weight' => 1.50,
+                'gemstone_code' => 'EME001',
+                'shape' => 'Emerald',
+                'cut' => 'Step',
+                'measurement_length' => 7.00,
+                'measurement_width' => 5.00,
+                'measurement_depth' => 3.50,
+                'treatment' => 'Oiled',
+                'origin' => 'Colombia',
+                'fluorescence' => 'None',
+                'symmetry' => 'Good',
+                'polish' => 'Good',
+                'girdle' => 'Thick',
+                'culet' => 'None',
+                'table_percentage' => 58.0,
+                'depth_percentage' => 65.0,
+                'certification_lab' => 'GIA',
+                'certification_number' => '555666777',
+                'certification_date' => '2025-03-10',
+                'status' => 'Active',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
+    }
+}

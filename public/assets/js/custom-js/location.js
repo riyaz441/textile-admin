@@ -1,0 +1,79 @@
+$(document).ready(function () {
+    new DataTable('#locations-table', {
+        layout: {},
+        "ordering": false,
+        oLanguage: {
+            sLengthMenu: "_MENU_",
+        }
+    });
+
+    $('#deleteModal').on('show.bs.modal', function (event) {
+        let button = $(event.relatedTarget);
+        let Id = button.data('id');
+        let Name = button.data('name');
+        let form = $('#deleteForm');
+
+        form.attr('action', APP_URL + '/' + Name + '/' + Id);
+    });
+
+    function showToast(message, type = 'success') {
+        const toastHTML = `
+            <div class="bs-toast toast fade ${type === 'success' ? 'bg-success' : 'bg-danger'}" role="alert" aria-live="assertive" aria-atomic="true" id="ajaxToast">
+                <div class="toast-header">
+                    <i class="icon-base bx bx-bell me-2"></i>
+                    <div class="me-auto fw-medium">${type === 'success' ? 'Success' : 'Alert'}</div>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    <strong>${message}</strong>
+                </div>
+            </div>
+        `;
+
+        let container = document.querySelector('.toast-container-custom');
+        if (!container) {
+            container = document.createElement('div');
+            container.className = 'toast-container-custom';
+            container.style.position = 'fixed';
+            container.style.top = '20px';
+            container.style.right = '20px';
+            container.style.zIndex = '999';
+            document.body.appendChild(container);
+        }
+
+        container.insertAdjacentHTML('beforeend', toastHTML);
+
+        const toastElement = document.getElementById('ajaxToast');
+        const toast = new bootstrap.Toast(toastElement, {
+            autohide: true,
+            delay: 3000
+        });
+        toast.show();
+
+        toastElement.addEventListener('hidden.bs.toast', function () {
+            toastElement.remove();
+        });
+    }
+
+    $(document).on('change', '.change_location_status', function () {
+        let dataId = $(this).data('id');
+        let isChecked = $(this).is(':checked');
+        let status = isChecked ? 'Active' : 'Inactive';
+        $.ajax({
+            url: APP_URL + '/change_location_status',
+            type: 'GET',
+            data: { id: dataId, status: status },
+            success: function (response) {
+                if (response.success) {
+                    showToast('Status updated successfully!', 'success');
+                } else {
+                    showToast('Error updating status.', 'danger');
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('AJAX Error: ' + status + error);
+                showToast('Error updating status.', 'danger');
+            }
+        });
+    });
+});
