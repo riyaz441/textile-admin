@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ApplicationSettingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmailConfigController;
 use App\Http\Controllers\PaymentController;
@@ -54,13 +53,4 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     Route::match(['get', 'post'], 'payment_gateway_setting', [PaymentController::class, 'pay']);
     Route::match(['get', 'post'], 'web_setting', [WebsettingController::class, 'setting']);
     Route::match(['get', 'post'], 'admin_setting', [WebsettingController::class, 'admin']);
-
-
-    /* Application Settings */
-    Route::get('application-settings', [ApplicationSettingController::class, 'index'])->name('application-settings.index');
-    Route::get('application-settings/form/{id?}', [ApplicationSettingController::class, 'form'])->name('application-settings.form');
-    Route::post('application-settings/save/{id?}', [ApplicationSettingController::class, 'save'])->name('application-settings.save');
-    Route::get('application-settings/{id}', [ApplicationSettingController::class, 'show'])->name('application-settings.show');
-    Route::post('application-settings/delete/{id}', [ApplicationSettingController::class, 'destroy'])->name('application-settings.delete');
-
 });

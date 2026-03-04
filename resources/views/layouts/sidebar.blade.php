@@ -112,13 +112,6 @@
                         <div class="text-truncate" data-i18n="admin_setting">Admin Setting</div>
                     </a>
                 </li>
-
-                <!--  application settings -->
-                <li class="menu-item {{ request()->is('application-settings*') ? 'active' : '' }}">
-                    <a href="{{ route('application-settings.index') }}" class="menu-link">
-                        <div class="text-truncate" data-i18n="application_settings">Application Settings</div>
-                    </a>
-                </li>
             </ul>
         </li>
     </ul>
