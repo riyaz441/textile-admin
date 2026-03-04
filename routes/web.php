@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmailConfigController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\WebsettingController;
+use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\Master\CompanyMasterController;
 use App\Http\Controllers\Master\BranchMasterController;
 use App\Http\Controllers\Master\ProductController;
@@ -15,11 +16,11 @@ use App\Http\Controllers\Master\ProductController;
 
 /* ---------------- Login Routes ---------------- */
 
-Route::view('/', 'website/index')->name('index');
+Route::get('/', [WebsiteController::class, 'index'])->name('index');
 Route::view('/about', 'website/about')->name('about');
-Route::view('/single_product', 'website/single-product')->name('single-product');
 Route::view('/contact', 'website/contact')->name('contact');
-Route::view('/products', 'website/products')->name('products');
+Route::get('/products', [WebsiteController::class, 'products'])->name('products');
+Route::get('/single_product/{id?}', [WebsiteController::class, 'singleProduct'])->name('single-product');
 
 Route::view('/login', 'auth_login')->name('login');
 Route::post('/login', [AuthController::class, 'login']);

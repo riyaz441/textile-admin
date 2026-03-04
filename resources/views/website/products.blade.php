@@ -66,7 +66,9 @@ https://templatemo.com/tm-571-hexashop
                                 <ul>
                                     <li><a href="{{ route('about') }}">About Us</a></li>
                                     <li><a href="{{ route('products') }}">Products</a></li>
-                                    <li><a href="{{ route('single-product') }}">Single Product</a></li>
+                                    @if ($featuredProductId)
+                                        <li><a href="{{ route('single-product', $featuredProductId) }}">Single Product</a></li>
+                                    @endif
                                     <li><a href="{{ route('contact') }}">Contact Us</a></li>
                                 </ul>
                             </li>
@@ -98,270 +100,55 @@ https://templatemo.com/tm-571-hexashop
     <!-- ***** Main Banner Area End ***** -->
 
 
-    <!-- ***** Products Area Starts ***** -->
-    <section class="section" id="products">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-heading">
-                        <h2>Our Latest Products</h2>
-                        <span>Check out all of our products.</span>
+    @if ($products->isNotEmpty())
+        <section class="section" id="products">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-heading">
+                            <h2>Our Latest Products</h2>
+                            <span>Check out all of our products.</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="item">
-                        <div class="thumb">
-                            <div class="hover-content">
-                                <ul>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
+            <div class="container">
+                <div class="row">
+                    @foreach ($products as $product)
+                        @php
+                            $starCount = max(0, min(5, (int) round($product->rating ?? 0)));
+                        @endphp
+                        <div class="col-lg-4">
+                            <div class="item">
+                                <div class="thumb">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="{{ route('single-product', $product->id) }}"><i
+                                                        class="fa fa-eye"></i></a></li>
+                                            <li><a href="{{ route('single-product', $product->id) }}"><i
+                                                        class="fa fa-star"></i></a></li>
+                                            <li><a href="{{ route('single-product', $product->id) }}"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
+                                </div>
+                                <div class="down-content">
+                                    <h4>{{ $product->name }}</h4>
+                                    <span>${{ number_format((float) $product->price, 2) }}</span>
+                                    <ul class="stars">
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            <li><i class="fa {{ $i <= $starCount ? 'fa-star' : 'fa-star-o' }}"></i></li>
+                                        @endfor
+                                    </ul>
+                                </div>
                             </div>
-                            <img src="{{ asset('website/assets/images/men-01.jpg') }}" alt="">
                         </div>
-                        <div class="down-content">
-                            <h4>Classic Spring</h4>
-                            <span>$120.00</span>
-                            <ul class="stars">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="item">
-                        <div class="thumb">
-                            <div class="hover-content">
-                                <ul>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <img src="{{ asset('website/assets/images/men-02.jpg') }}" alt="">
-                        </div>
-                        <div class="down-content">
-                            <h4>Air Force 1 X</h4>
-                            <span>$90.00</span>
-                            <ul class="stars">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="item">
-                        <div class="thumb">
-                            <div class="hover-content">
-                                <ul>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <img src="{{ asset('website/assets/images/men-03.jpg') }}" alt="">
-                        </div>
-                        <div class="down-content">
-                            <h4>Love Nana ‘20</h4>
-                            <span>$150.00</span>
-                            <ul class="stars">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="item">
-                        <div class="thumb">
-                            <div class="hover-content">
-                                <ul>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <img src="{{ asset('website/assets/images/women-01.jpg') }}" alt="">
-                        </div>
-                        <div class="down-content">
-                            <h4>New Green Jacket</h4>
-                            <span>$75.00</span>
-                            <ul class="stars">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="item">
-                        <div class="thumb">
-                            <div class="hover-content">
-                                <ul>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <img src="{{ asset('website/assets/images/women-02.jpg') }}" alt="">
-                        </div>
-                        <div class="down-content">
-                            <h4>Classic Dress</h4>
-                            <span>$45.00</span>
-                            <ul class="stars">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="item">
-                        <div class="thumb">
-                            <div class="hover-content">
-                                <ul>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <img src="{{ asset('website/assets/images/women-03.jpg') }}" alt="">
-                        </div>
-                        <div class="down-content">
-                            <h4>Spring Collection</h4>
-                            <span>$130.00</span>
-                            <ul class="stars">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="item">
-                        <div class="thumb">
-                            <div class="hover-content">
-                                <ul>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <img src="{{ asset('website/assets/images/kid-01.jpg') }}" alt="">
-                        </div>
-                        <div class="down-content">
-                            <h4>School Collection</h4>
-                            <span>$80.00</span>
-                            <ul class="stars">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="item">
-                        <div class="thumb">
-                            <div class="hover-content">
-                                <ul>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <img src="{{ asset('website/assets/images/kid-02.jpg') }}" alt="">
-                        </div>
-                        <div class="down-content">
-                            <h4>Summer Cap</h4>
-                            <span>$12.00</span>
-                            <ul class="stars">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="item">
-                        <div class="thumb">
-                            <div class="hover-content">
-                                <ul>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="{{ route('single-product') }}"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <img src="{{ asset('website/assets/images/kid-03.jpg') }}" alt="">
-                        </div>
-                        <div class="down-content">
-                            <h4>Classic Kid</h4>
-                            <span>$30.00</span>
-                            <ul class="stars">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="pagination">
-                        <ul>
-                            <li>
-                                <a href="#">1</a>
-                            </li>
-                            <li class="active">
-                                <a href="#">2</a>
-                            </li>
-                            <li>
-                                <a href="#">3</a>
-                            </li>
-                            <li>
-                                <a href="#">4</a>
-                            </li>
-                            <li>
-                                <a href="#">></a>
-                            </li>
-                        </ul>
-                    </div>
+                    @endforeach
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- ***** Products Area Ends ***** -->
+        </section>
+    @endif
 
     <!-- ***** Footer Start ***** -->
     <footer>

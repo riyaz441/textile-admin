@@ -134,7 +134,7 @@ class ProductController extends Controller
         $product->fill($productData);
         $product->save();
 
-        return redirect('products')->with(
+        return redirect()->route('products.index')->with(
             'success',
             $id ? 'Product updated successfully!' : 'Product created successfully!'
         );
@@ -166,7 +166,7 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return redirect('products')->with('danger', 'Product deleted successfully!');
+        return redirect()->route('products.index')->with('danger', 'Product deleted successfully!');
     }
 
     /**

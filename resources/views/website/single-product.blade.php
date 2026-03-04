@@ -22,6 +22,75 @@
     <link rel="stylesheet" href="{{ asset('website/assets/css/owl-carousel.css') }}">
 
     <link rel="stylesheet" href="{{ asset('website/assets/css/lightbox.css') }}">
+    <style>
+        #product .product-layout {
+            align-items: flex-start;
+        }
+
+        #product .product-gallery-col {
+            flex: 0 0 64%;
+            max-width: 64%;
+        }
+
+        #product .product-info-col {
+            flex: 0 0 36%;
+            max-width: 36%;
+            padding-left: 20px;
+        }
+
+        #product .left-images {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .product-gallery-main img {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .product-gallery-thumbs {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .product-gallery-thumbs .thumb-btn {
+            border: 2px solid #e8e8e8;
+            padding: 0;
+            border-radius: 6px;
+            background: #fff;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .product-gallery-thumbs .thumb-btn.active {
+            border-color: #2a2a2a;
+        }
+
+        .product-gallery-thumbs img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (max-width: 991.98px) {
+            #product .product-gallery-col,
+            #product .product-info-col {
+                flex: 0 0 100%;
+                max-width: 100%;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            #product .product-info-col {
+                margin-top: 30px;
+            }
+        }
+    </style>
 <!--
 
 TemplateMo 571 Hexashop
@@ -88,8 +157,8 @@ https://templatemo.com/tm-571-hexashop
             <div class="row">
                 <div class="col-lg-12">
                     <div class="inner-content">
-                        <h2>Single Product Page</h2>
-                        <span>Awesome &amp; Creative HTML CSS layout by TemplateMo</span>
+                        <h2>{{ $product->name }}</h2>
+                        <span>{{ ucfirst($product->category) }} Collection</span>
                     </div>
                 </div>
             </div>
@@ -99,29 +168,47 @@ https://templatemo.com/tm-571-hexashop
 
 
     <!-- ***** Product Area Starts ***** -->
+    @php
+        $productImages = collect([$product->image, $product->image_1, $product->image_2, $product->image_3])->filter()->take(4)->values();
+        $starCount = max(0, min(5, (int) round($product->rating ?? 0)));
+        $unitPrice = (float) $product->price;
+        $mainImage = $productImages->first();
+    @endphp
     <section class="section" id="product">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                <div class="left-images">
-                    <img src="{{ asset('website/assets/images/single-product-01.jpg') }}" alt="">
-                    <img src="{{ asset('website/assets/images/single-product-02.jpg') }}" alt="">
+            <div class="row product-layout">
+                <div class="col-lg-8 product-gallery-col">
+                    <div class="left-images">
+                        @if ($mainImage)
+                            <div class="product-gallery-main">
+                                <img id="main-product-image" src="{{ asset($mainImage) }}" alt="{{ $product->name }}">
+                            </div>
+                            @if ($productImages->count() > 1)
+                                <div class="product-gallery-thumbs">
+                                    @foreach ($productImages as $index => $image)
+                                        <button type="button" class="thumb-btn {{ $index === 0 ? 'active' : '' }}"
+                                            data-image="{{ asset($image) }}">
+                                            <img src="{{ asset($image) }}" alt="{{ $product->name }} {{ $index + 1 }}">
+                                        </button>
+                                    @endforeach
+                                </div>
+                            @endif
+                        @endif
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 product-info-col">
                 <div class="right-content">
-                    <h4>New Green Jacket</h4>
-                    <span class="price">$75.00</span>
+                    <h4>{{ $product->name }}</h4>
+                    <span class="price">${{ number_format($unitPrice, 2) }}</span>
                     <ul class="stars">
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
+                        @for ($i = 1; $i <= 5; $i++)
+                            <li><i class="fa {{ $i <= $starCount ? 'fa-star' : 'fa-star-o' }}"></i></li>
+                        @endfor
                     </ul>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore.</span>
+                    <span>{{ $product->short_description ?: $product->description }}</span>
                     <div class="quote">
-                        <i class="fa fa-quote-left"></i><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiuski smod.</p>
+                        <i class="fa fa-quote-left"></i>
+                        <p>{{ $product->description }}</p>
                     </div>
                     <div class="quantity-content">
                         <div class="left-content">
@@ -129,12 +216,16 @@ https://templatemo.com/tm-571-hexashop
                         </div>
                         <div class="right-content">
                             <div class="quantity buttons_added">
-                                <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+                                <input type="button" value="-" class="minus">
+                                <input type="number" step="1" min="1" max="{{ max(1, (int) $product->stock_quantity) }}"
+                                    name="quantity" value="1" title="Qty" class="input-text qty text" size="4"
+                                    pattern="" inputmode="">
+                                <input type="button" value="+" class="plus">
                             </div>
                         </div>
                     </div>
                     <div class="total">
-                        <h4>Total: $210.00</h4>
+                        <h4>Total: $<span id="product-total">{{ number_format($unitPrice, 2) }}</span></h4>
                         <div class="main-border-button"><a href="#">Add To Cart</a></div>
                     </div>
                 </div>
@@ -230,6 +321,31 @@ https://templatemo.com/tm-571-hexashop
     <script src="{{ asset('website/assets/js/custom.js') }}"></script>
 
     <script>
+        $(function() {
+            const unitPrice = {{ json_encode($unitPrice) }};
+            const qtyInput = $('.qty');
+            const totalElement = $('#product-total');
+            const mainImage = $('#main-product-image');
+            const thumbButtons = $('.thumb-btn');
+
+            function refreshTotal() {
+                const qty = Math.max(1, parseInt(qtyInput.val(), 10) || 1);
+                totalElement.text((unitPrice * qty).toFixed(2));
+            }
+
+            qtyInput.on('input change', refreshTotal);
+            refreshTotal();
+
+            thumbButtons.on('click', function () {
+                const selectedImage = $(this).data('image');
+                if (!selectedImage || !mainImage.length) {
+                    return;
+                }
+                mainImage.attr('src', selectedImage);
+                thumbButtons.removeClass('active');
+                $(this).addClass('active');
+            });
+        });
 
         $(function() {
             var selectedClass = "";
