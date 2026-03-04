@@ -14,7 +14,7 @@ use App\Http\Controllers\Master\BranchMasterController;
 
 /* ---------------- Login Routes ---------------- */
 
-Route::view('/', 'landing_page');
+Route::view('/', 'website/index');
 Route::view('/login', 'auth_login')->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::match(['get', 'post'], 'logout', [AuthController::class, 'logout']);
