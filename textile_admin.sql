@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2026 at 10:28 AM
+-- Generation Time: Mar 04, 2026 at 02:26 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -190,7 +190,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2025_03_28_101013_create_payments_table', 1),
 (6, '2025_03_29_042036_create_websettings_table', 1),
 (7, '2026_02_02_000000_create_companies_table', 1),
-(8, '2026_02_02_000001_create_branches_table', 1);
+(8, '2026_02_02_000001_create_branches_table', 1),
+(10, '2026_03_04_112058_create_products_table', 2),
+(11, '2026_03_04_120000_add_category_to_products_table', 3);
 
 -- --------------------------------------------------------
 
@@ -230,6 +232,34 @@ INSERT INTO `payments` (`id`, `agent`, `merchant_id`, `api_key`, `status`, `crea
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `sku` varchar(255) NOT NULL,
+  `category` enum('male','female','kids') DEFAULT 'male',
+  `description` text NOT NULL,
+  `short_description` text DEFAULT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `cost_price` decimal(10,2) DEFAULT NULL,
+  `discount_percentage` decimal(5,2) NOT NULL DEFAULT 0.00,
+  `image` varchar(255) NOT NULL,
+  `image_1` varchar(255) DEFAULT NULL,
+  `image_2` varchar(255) DEFAULT NULL,
+  `image_3` varchar(255) DEFAULT NULL,
+  `stock_quantity` int(11) NOT NULL DEFAULT 0,
+  `min_stock_level` int(11) NOT NULL DEFAULT 0,
+  `rating` decimal(3,2) NOT NULL DEFAULT 0.00 COMMENT 'Rating out of 5',
+  `status` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sessions`
 --
 
@@ -247,7 +277,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('mHgYNSuJMjxXLfQd17DJZFdtRzHVqfTi3PmDZt4R', 1, '192.168.1.250', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiVjBhOE1NdXhZakRBYUwzeDdiZVIxOGRxOFV4UjZ1aUtmOUlTWEFlQyI7czoxMDoiY29tcGFueV9pZCI7czozOiJhbGwiO3M6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM1OiJodHRwOi8vMTkyLjE2OC4xLjI1MDo4MDAxL2Rhc2hib2FyZCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMiRzVUZ6c1hQWWRhUDJ5eW1Gc3FFbmcuRzJnempUcURtWUdxcW1yQ3ExcC5oY2JuWkwwdmhKMiI7fQ==', 1772616417);
+('xQqFZI6UgDBy9vwbjbSNkcxPirFZjavJ0aQcyeVu', NULL, '192.168.1.250', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoic3F5V2lXM2VubVJoWW1wd1RIQUk0d1ZWQUROT1Q0UnBhY1pCU0Y0TiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xOTIuMTY4LjEuMjUwOjgwMDEvbG9naW4iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjEwOiJjb21wYW55X2lkIjtzOjM6ImFsbCI7fQ==', 1772630802);
 
 -- --------------------------------------------------------
 
@@ -377,6 +407,13 @@ ALTER TABLE `payments`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `products_sku_unique` (`sku`);
+
+--
 -- Indexes for table `sessions`
 --
 ALTER TABLE `sessions`
@@ -435,12 +472,18 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --

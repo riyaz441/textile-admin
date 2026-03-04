@@ -147,19 +147,9 @@
     <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
 
     <!-- custom JS -->
-    <script src="{{ asset('assets/js/custom-js/product_category.js') }}"></script>
-    <script src="{{ asset('assets/js/custom-js/material.js') }}"></script>
     <script src="{{ asset('assets/js/custom-js/company.js') }}"></script>
     <script src="{{ asset('assets/js/custom-js/branch.js') }}"></script>
-    <script src="{{ asset('assets/js/custom-js/location.js') }}"></script>
-    <script src="{{ asset('assets/js/custom-js/labor.js') }}"></script>
-    <script src="{{ asset('assets/js/custom-js/gemstone.js') }}"></script>
-    <script src="{{ asset('assets/js/custom-js/suppliers.js') }}"></script>
     <script src="{{ asset('assets/js/custom-js/product.js') }}"></script>
-    <script src="{{ asset('assets/js/custom-js/inventory_stocks.js') }}"></script>
-    <script src="{{ asset('assets/js/custom-js/measurement.js') }}"></script>
-    <script src="{{ asset('assets/js/custom-js/application_setting.js') }}"></script>
-    <script src="{{ asset('assets/js/custom-js/component_type.js') }}"></script>
 
     <!-- endbuild -->
 

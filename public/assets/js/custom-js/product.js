@@ -65,18 +65,26 @@ $(document).ready(function () {
         });
     }
 
-    // active and in active status changes start (banner)
+    // product status change start
     $(document).on('change', '.change_product_status', function () {
         let dataId = $(this).data('id');
         let isChecked = $(this).is(':checked');
         let status = isChecked ? 'Active' : 'Inactive';
+
         $.ajax({
             url: APP_URL + '/change_product_status',
-            type: 'GET',
-            data: { id: dataId, status: status },
+            type: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: JSON.stringify({
+                id: dataId,
+                status: status
+            }),
+            contentType: 'application/json',
             success: function (response) {
                 if (response.success) {
-                    showToast('Status updated successfully!' , 'success');
+                    showToast('Status updated successfully!', 'success');
                 } else {
                     showToast('Error updating status.', 'danger');
                 }
@@ -87,6 +95,6 @@ $(document).ready(function () {
             }
         });
     });
-    // active and in active status changes end (banner)
+    // product status change end
 });
 

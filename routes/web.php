@@ -9,6 +9,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\WebsettingController;
 use App\Http\Controllers\Master\CompanyMasterController;
 use App\Http\Controllers\Master\BranchMasterController;
+use App\Http\Controllers\Master\ProductController;
 
 
 
@@ -51,6 +52,15 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     Route::post('branches/delete/{id}', [BranchMasterController::class, 'destroy'])->name('branches.destroy');
     Route::match(['get', 'post'], 'change_branch_status', [BranchMasterController::class, 'changeStatus']);
     Route::match(['get', 'post'], 'get_branch_by_company', [BranchMasterController::class, 'getByCompany']);
+
+
+    /* Products */
+    Route::get('products', [ProductController::class, 'index'])->name('products.index');
+    Route::get('products/form/{id?}', [ProductController::class, 'form'])->name('products.form');
+    Route::post('products/save/{id?}', [ProductController::class, 'save'])->name('products.save');
+    Route::get('products/{id}', [ProductController::class, 'show'])->name('products.show');
+    Route::post('products/delete/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+    Route::match(['get', 'post'], 'change_product_status', [ProductController::class, 'changeStatus']);
 
 
     /* Settings */
