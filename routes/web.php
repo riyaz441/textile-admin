@@ -55,11 +55,11 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
 
 
     /* Products */
-    Route::get('products', [ProductController::class, 'index'])->name('products.index');
-    Route::get('products/form/{id?}', [ProductController::class, 'form'])->name('products.form');
-    Route::post('products/save/{id?}', [ProductController::class, 'save'])->name('products.save');
-    Route::get('products/{id}', [ProductController::class, 'show'])->name('products.show');
-    Route::post('products/delete/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+    Route::get('admin/products', [ProductController::class, 'index'])->name('products.index');
+    Route::get('admin/products/form/{id?}', [ProductController::class, 'form'])->name('products.form');
+    Route::post('admin/products/save/{id?}', [ProductController::class, 'save'])->name('products.save');
+    Route::get('admin/products/{id}', [ProductController::class, 'show'])->name('products.show');
+    Route::post('admin/products/delete/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
     Route::match(['get', 'post'], 'change_product_status', [ProductController::class, 'changeStatus']);
 
 
