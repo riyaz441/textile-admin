@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
 
     <title>Hexashop Ecommerce HTML CSS Template</title>
 
@@ -22,16 +23,16 @@
     <link rel="stylesheet" href="{{ asset('website/assets/css/owl-carousel.css') }}">
 
     <link rel="stylesheet" href="{{ asset('website/assets/css/lightbox.css') }}">
-<!--
+    <!--
 
 TemplateMo 571 Hexashop
 
 https://templatemo.com/tm-571-hexashop
 
 -->
-    </head>
+</head>
 
-    <body>
+<body>
 
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
@@ -51,7 +52,7 @@ https://templatemo.com/tm-571-hexashop
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
+                        <a href="{{ route('index') }}" class="logo">
                             <img src="{{ asset('website/assets/images/logo.png') }}">
                         </a>
                         <!-- ***** Logo End ***** -->
@@ -64,22 +65,12 @@ https://templatemo.com/tm-571-hexashop
                             <li class="submenu">
                                 <a href="javascript:;">Pages</a>
                                 <ul>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="products.html">Products</a></li>
-                                    <li><a href="single-product.html">Single Product</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="{{ route('about') }}">About Us</a></li>
+                                    <li><a href="{{ route('products') }}">Products</a></li>
+                                    <li><a href="{{ route('single-product') }}">Single Product</a></li>
+                                    <li><a href="{{ route('contact') }}">Contact Us</a></li>
                                 </ul>
                             </li>
-                            <li class="submenu">
-                                <a href="javascript:;">Features</a>
-                                <ul>
-                                    <li><a href="#">Features Page 1</a></li>
-                                    <li><a href="#">Features Page 2</a></li>
-                                    <li><a href="#">Features Page 3</a></li>
-                                    <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">Template Page 4</a></li>
-                                </ul>
-                            </li>
-                            <li class="scroll-to-section"><a href="#explore">Explore</a></li>
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -123,7 +114,8 @@ https://templatemo.com/tm-571-hexashop
                                         <div class="hover-content">
                                             <div class="inner">
                                                 <h4>Women</h4>
-                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.
+                                                </p>
                                                 <div class="main-border-button">
                                                     <a href="#">Discover More</a>
                                                 </div>
@@ -143,7 +135,8 @@ https://templatemo.com/tm-571-hexashop
                                         <div class="hover-content">
                                             <div class="inner">
                                                 <h4>Men</h4>
-                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.
+                                                </p>
                                                 <div class="main-border-button">
                                                     <a href="#">Discover More</a>
                                                 </div>
@@ -163,7 +156,8 @@ https://templatemo.com/tm-571-hexashop
                                         <div class="hover-content">
                                             <div class="inner">
                                                 <h4>Kids</h4>
-                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.
+                                                </p>
                                                 <div class="main-border-button">
                                                     <a href="#">Discover More</a>
                                                 </div>
@@ -183,7 +177,8 @@ https://templatemo.com/tm-571-hexashop
                                         <div class="hover-content">
                                             <div class="inner">
                                                 <h4>Accessories</h4>
-                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.
+                                                </p>
                                                 <div class="main-border-button">
                                                     <a href="#">Discover More</a>
                                                 </div>
@@ -222,9 +217,12 @@ https://templatemo.com/tm-571-hexashop
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a>
+                                            </li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-star"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="{{ asset('website/assets/images/men-01.jpg') }}" alt="">
@@ -245,9 +243,12 @@ https://templatemo.com/tm-571-hexashop
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a>
+                                            </li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-star"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="{{ asset('website/assets/images/men-02.jpg') }}" alt="">
@@ -268,9 +269,12 @@ https://templatemo.com/tm-571-hexashop
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a>
+                                            </li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-star"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="{{ asset('website/assets/images/men-03.jpg') }}" alt="">
@@ -291,9 +295,12 @@ https://templatemo.com/tm-571-hexashop
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a>
+                                            </li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-star"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="{{ asset('website/assets/images/men-01.jpg') }}" alt="">
@@ -339,9 +346,12 @@ https://templatemo.com/tm-571-hexashop
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a>
+                                            </li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-star"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="{{ asset('website/assets/images/women-01.jpg') }}" alt="">
@@ -362,9 +372,12 @@ https://templatemo.com/tm-571-hexashop
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a>
+                                            </li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-star"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="{{ asset('website/assets/images/women-02.jpg') }}" alt="">
@@ -385,9 +398,12 @@ https://templatemo.com/tm-571-hexashop
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a>
+                                            </li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-star"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="{{ asset('website/assets/images/women-03.jpg') }}" alt="">
@@ -408,9 +424,12 @@ https://templatemo.com/tm-571-hexashop
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a>
+                                            </li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-star"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="{{ asset('website/assets/images/women-01.jpg') }}" alt="">
@@ -456,9 +475,12 @@ https://templatemo.com/tm-571-hexashop
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a>
+                                            </li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-star"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="{{ asset('website/assets/images/kid-01.jpg') }}" alt="">
@@ -479,9 +501,12 @@ https://templatemo.com/tm-571-hexashop
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a>
+                                            </li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-star"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="{{ asset('website/assets/images/kid-02.jpg') }}" alt="">
@@ -502,9 +527,12 @@ https://templatemo.com/tm-571-hexashop
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a>
+                                            </li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-star"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="{{ asset('website/assets/images/kid-03.jpg') }}" alt="">
@@ -525,9 +553,12 @@ https://templatemo.com/tm-571-hexashop
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i class="fa fa-eye"></i></a>
+                                            </li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-star"></i></a></li>
+                                            <li><a href="{{ route('single-product') }}"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="{{ asset('website/assets/images/kid-01.jpg') }}" alt="">
@@ -559,14 +590,21 @@ https://templatemo.com/tm-571-hexashop
                 <div class="col-lg-6">
                     <div class="left-content">
                         <h2>Explore Our Products</h2>
-                        <span>You are allowed to use this HexaShop HTML CSS template. You can feel free to modify or edit this layout. You can convert this template as any kind of ecommerce CMS theme as you wish.</span>
+                        <span>You are allowed to use this HexaShop HTML CSS template. You can feel free to modify or
+                            edit this layout. You can convert this template as any kind of ecommerce CMS theme as you
+                            wish.</span>
                         <div class="quote">
-                            <i class="fa fa-quote-left"></i><p>You are not allowed to redistribute this template ZIP file on any other website.</p>
+                            <i class="fa fa-quote-left"></i>
+                            <p>You are not allowed to redistribute this template ZIP file on any other website.</p>
                         </div>
-                        <p>There are 5 pages included in this HexaShop Template and we are providing it to you for absolutely free of charge at our TemplateMo website. There are web development costs for us.</p>
-                        <p>If this template is beneficial for your website or business, please kindly <a rel="nofollow" href="https://paypal.me/templatemo" target="_blank">support us</a> a little via PayPal. Please also tell your friends about our great website. Thank you.</p>
+                        <p>There are 5 pages included in this HexaShop Template and we are providing it to you for
+                            absolutely free of charge at our TemplateMo website. There are web development costs for us.
+                        </p>
+                        <p>If this template is beneficial for your website or business, please kindly <a rel="nofollow"
+                                href="https://paypal.me/templatemo" target="_blank">support us</a> a little via
+                            PayPal. Please also tell your friends about our great website. Thank you.</p>
                         <div class="main-border-button">
-                            <a href="products.html">Discover More</a>
+                            <a href="{{ route('products') }}">Discover More</a>
                         </div>
                     </div>
                 </div>
@@ -581,12 +619,14 @@ https://templatemo.com/tm-571-hexashop
                             </div>
                             <div class="col-lg-6">
                                 <div class="first-image">
-                                    <img src="{{ asset('website/assets/images/explore-image-01.jpg') }}" alt="">
+                                    <img src="{{ asset('website/assets/images/explore-image-01.jpg') }}"
+                                        alt="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="second-image">
-                                    <img src="{{ asset('website/assets/images/explore-image-02.jpg') }}" alt="">
+                                    <img src="{{ asset('website/assets/images/explore-image-02.jpg') }}"
+                                        alt="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -699,21 +739,24 @@ https://templatemo.com/tm-571-hexashop
                     </div>
                     <form id="subscribe" action="" method="get">
                         <div class="row">
-                          <div class="col-lg-5">
-                            <fieldset>
-                              <input name="name" type="text" id="name" placeholder="Your Name" required="">
-                            </fieldset>
-                          </div>
-                          <div class="col-lg-5">
-                            <fieldset>
-                              <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email Address" required="">
-                            </fieldset>
-                          </div>
-                          <div class="col-lg-2">
-                            <fieldset>
-                              <button type="submit" id="form-submit" class="main-dark-button"><i class="fa fa-paper-plane"></i></button>
-                            </fieldset>
-                          </div>
+                            <div class="col-lg-5">
+                                <fieldset>
+                                    <input name="name" type="text" id="name" placeholder="Your Name"
+                                        required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-5">
+                                <fieldset>
+                                    <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*"
+                                        placeholder="Your Email Address" required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-2">
+                                <fieldset>
+                                    <button type="submit" id="form-submit" class="main-dark-button"><i
+                                            class="fa fa-paper-plane"></i></button>
+                                </fieldset>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -730,7 +773,9 @@ https://templatemo.com/tm-571-hexashop
                             <ul>
                                 <li>Work Hours:<br><span>07:30 AM - 9:30 PM Daily</span></li>
                                 <li>Email:<br><span>info@company.com</span></li>
-                                <li>Social Media:<br><span><a href="#">Facebook</a>, <a href="#">Instagram</a>, <a href="#">Behance</a>, <a href="#">Linkedin</a></span></li>
+                                <li>Social Media:<br><span><a href="#">Facebook</a>, <a
+                                            href="#">Instagram</a>, <a href="#">Behance</a>, <a
+                                            href="#">Linkedin</a></span></li>
                             </ul>
                         </div>
                     </div>
@@ -747,10 +792,12 @@ https://templatemo.com/tm-571-hexashop
                 <div class="col-lg-3">
                     <div class="first-item">
                         <div class="logo">
-                            <img src="{{ asset('website/assets/images/white-logo.png') }}" alt="hexashop ecommerce templatemo">
+                            <img src="{{ asset('website/assets/images/white-logo.png') }}"
+                                alt="hexashop ecommerce templatemo">
                         </div>
                         <ul>
-                            <li><a href="#">16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</a></li>
+                            <li><a href="#">16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</a>
+                            </li>
                             <li><a href="#">hexashop@company.com</a></li>
                             <li><a href="#">010-020-0340</a></li>
                         </ul>
@@ -786,9 +833,12 @@ https://templatemo.com/tm-571-hexashop
                     <div class="under-footer">
                         <p>Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved.
 
-                        <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
+                            <br>Design: <a href="https://templatemo.com" target="_parent"
+                                title="free css templates">TemplateMo</a>
 
-                        <br>Distributed By: <a href="https://themewagon.com" target="_blank" title="free & premium responsive templates">ThemeWagon</a></p>
+                            <br>Distributed By: <a href="https://themewagon.com" target="_blank"
+                                title="free & premium responsive templates">ThemeWagon</a>
+                        </p>
                         <ul>
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -825,22 +875,21 @@ https://templatemo.com/tm-571-hexashop
     <script src="{{ asset('website/assets/js/custom.js') }}"></script>
 
     <script>
-
         $(function() {
             var selectedClass = "";
-            $("p").click(function(){
-            selectedClass = $(this).attr("data-rel");
-            $("#portfolio").fadeTo(50, 0.1);
-                $("#portfolio div").not("."+selectedClass).fadeOut();
-            setTimeout(function() {
-              $("."+selectedClass).fadeIn();
-              $("#portfolio").fadeTo(50, 1);
-            }, 500);
+            $("p").click(function() {
+                selectedClass = $(this).attr("data-rel");
+                $("#portfolio").fadeTo(50, 0.1);
+                $("#portfolio div").not("." + selectedClass).fadeOut();
+                setTimeout(function() {
+                    $("." + selectedClass).fadeIn();
+                    $("#portfolio").fadeTo(50, 1);
+                }, 500);
 
             });
         });
-
     </script>
 
-  </body>
+</body>
+
 </html>
