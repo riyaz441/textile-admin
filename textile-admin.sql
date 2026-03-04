@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 04, 2026 at 02:26 PM
+-- Host: localhost
+-- Generation Time: Mar 04, 2026 at 06:16 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `textile_admin`
+-- Database: `textile-admin`
 --
 
 -- --------------------------------------------------------
@@ -257,6 +257,15 @@ CREATE TABLE `products` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `sku`, `category`, `description`, `short_description`, `price`, `cost_price`, `discount_percentage`, `image`, `image_1`, `image_2`, `image_3`, `stock_quantity`, `min_stock_level`, `rating`, `status`, `created_at`, `updated_at`) VALUES
+(2, 'New Green Jacket', 'Men-001', 'male', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore', 750.00, 1150.00, 5.00, 'assets/products/1772641978_image.jpg', 'assets/products/1772641978_image_1.jpg', 'assets/products/1772641978_image_2.jpg', 'assets/products/1772641978_image_3.jpg', 50, 20, 5.00, 'Active', '2026-03-04 11:02:58', '2026-03-04 11:02:58'),
+(3, 'classic dress', 'women-001', 'female', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore.', 850.00, 1500.00, 20.00, 'assets/products/1772642247_image.jpg', 'assets/products/1772642247_image_1.jpg', 'assets/products/1772642247_image_2.jpg', 'assets/products/1772642247_image_3.jpg', 75, 20, 4.00, 'Active', '2026-03-04 11:07:27', '2026-03-04 11:07:27'),
+(4, 'classic kids', 'kids-001', 'kids', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore.', 500.00, 850.00, 20.00, 'assets/products/1772643006_image.jpg', 'assets/products/1772643006_image_1.jpg', 'assets/products/1772643006_image_2.jpg', 'assets/products/1772643006_image_3.jpg', 15, 5, 3.00, 'Active', '2026-03-04 11:20:06', '2026-03-04 11:20:06');
+
 -- --------------------------------------------------------
 
 --
@@ -277,7 +286,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('xQqFZI6UgDBy9vwbjbSNkcxPirFZjavJ0aQcyeVu', NULL, '192.168.1.250', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoic3F5V2lXM2VubVJoWW1wd1RIQUk0d1ZWQUROT1Q0UnBhY1pCU0Y0TiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xOTIuMTY4LjEuMjUwOjgwMDEvbG9naW4iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjEwOiJjb21wYW55X2lkIjtzOjM6ImFsbCI7fQ==', 1772630802);
+('JuZ0XulKhcTRWYs3XcP70882WNwCO8ZnDq5TO9Xo', 1, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiNkFJc21hdDNQenhPNGV2aG9rSWhDdmxmMU5oeGYwVjNvZDVBRzlrOCI7czoxMDoiY29tcGFueV9pZCI7czozOiJhbGwiO3M6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjIxOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTIkc1VGenNYUFlkYVAyeXltRnNxRW5nLkcyZ3pqVHFEbVlHcXFtckNxMXAuaGNiblpMMHZoSjIiO30=', 1772644482);
 
 -- --------------------------------------------------------
 
@@ -484,7 +493,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
