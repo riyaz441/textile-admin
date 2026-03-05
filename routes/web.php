@@ -10,7 +10,7 @@ use App\Http\Controllers\WebsettingController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\Master\CompanyMasterController;
 use App\Http\Controllers\Master\BranchMasterController;
-use App\Http\Controllers\Master\ProductController;
+use App\Http\Controllers\ProductController;
 
 
 
