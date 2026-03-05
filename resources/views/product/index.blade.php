@@ -75,7 +75,7 @@
                                             data-bs-toggle="dropdown">
                                             <i class="bx bx-dots-vertical-rounded"></i>
                                         </button>
-                                        <div class="dropdown-menu product-action-menu">
+                                        <div class="dropdown-menu company-action-menu">
                                             <a class="dropdown-item" href="javascript:void(0);"
                                                 onclick="location.href='{{ route('products.form', $product->id) }}'">
                                                 <i class="bx bx-edit-alt me-1"></i> Edit

@@ -28156,11 +28156,6 @@ html:not(.layout-footer-fixed) .content-wrapper {
     transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
-.company-action-menu .dropdown-item:hover,
-.company-action-menu .dropdown-item:focus {
-    transform: translateX(2px);
-}
-
 .company-action-menu .dropdown-item.delete-item:hover,
 .company-action-menu .dropdown-item.delete-item:focus {
     background-color: #ffe5e5;
