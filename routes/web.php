@@ -16,12 +16,14 @@ use App\Http\Controllers\ProductController;
 
 /* ---------------- Login Routes ---------------- */
 
+/* Website */
 Route::get('/', [WebsiteController::class, 'index'])->name('index');
 Route::view('/about', 'website/about')->name('about');
 Route::view('/contact', 'website/contact')->name('contact');
 Route::get('/products', [WebsiteController::class, 'products'])->name('products');
 Route::get('/single_product/{id?}', [WebsiteController::class, 'singleProduct'])->name('single-product');
 
+/* Auth */
 Route::view('/login', 'auth_login')->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::match(['get', 'post'], 'logout', [AuthController::class, 'logout']);
@@ -31,6 +33,7 @@ Route::match(['get', 'post'], 'logout', [AuthController::class, 'logout']);
 
 Route::middleware(['auth', 'auth.session'])->group(function () {
 
+    /* Dashboard and Profile */
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::match(['get', 'post'], 'profile', [DashboardController::class, 'profile'])->name('profile');
 
