@@ -18,37 +18,6 @@ id="layout-navbar">
     <!-- /Search -->
 
     <ul class="navbar-nav flex-row align-items-center ms-auto">
-        @if (!empty($companies) && $companies->count())
-            <li class="nav-item me-3 dropdown">
-                <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);"
-                    data-bs-toggle="dropdown" aria-expanded="false" aria-label="Select Company">
-                    <i class="bx bx-buildings bx-md"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end p-3" style="min-width: 260px;">
-                    <div class="d-flex align-items-center mb-2">
-                        <i class="bx bx-buildings me-2 text-primary"></i>
-                        <span class="fw-semibold text-uppercase small">Company</span>
-                    </div>
-                    <form action="{{ route('companies.set') }}" method="POST">
-                        @csrf
-                        <div class="input-group input-group-sm">
-                            <select class="form-select form-select-sm" name="company_id" onchange="this.form.submit()"
-                                aria-label="Select Company">
-                                <option value="all" {{ ($selectedCompanyId === 'all' || empty($selectedCompanyId)) ? 'selected' : '' }}>All Companies</option>
-                                @foreach ($companies as $company)
-                                    <option value="{{ $company->company_id }}"
-                                        {{ (int) $selectedCompanyId === (int) $company->company_id ? 'selected' : '' }}>
-                                        {{ $company->company_name }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </form>
-                </div>
-            </li>
-        @endif
-        <!-- Place this tag where you want the button to render. -->
-
         <!-- User -->
         <li class="nav-item navbar-dropdown dropdown-user dropdown">
             <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);"
