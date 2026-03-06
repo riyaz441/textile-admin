@@ -3,12 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Concerns\CompanyScoped;
 
 class BranchMaster extends Model
 {
-    use CompanyScoped;
-
     protected $guarded = [];
 
     protected $table = 'branches';
