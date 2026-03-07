@@ -37,6 +37,13 @@
 
                         <div class="row mb-4">
                             <div class="col-md-6 mb-3">
+                                <label class="form-label text-muted">Slug</label>
+                                <h6 class="mb-0">{{ $product->slug }}</h6>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6 mb-3">
                                 <label class="form-label text-muted">Category</label>
                                 <h6 class="mb-0">
                                     <span class="badge {{ $product->category == 'male' ? 'bg-label-info' : ($product->category == 'female' ? 'bg-label-danger' : 'bg-label-success') }}">

@@ -58,6 +58,13 @@ class ProductController extends Controller
                     'regex:/^[A-Z0-9-]+$/i',
                     Rule::unique('products', 'sku')->ignore($id, 'id'),
                 ],
+                'slug' => [
+                    'required',
+                    'min:3',
+                    'max:255',
+                    'regex:/^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)*$/i',
+                    Rule::unique('products', 'slug')->ignore($id, 'id'),
+                ],
                 'category' => 'required|in:male,female,kids',
                 'description' => 'required|min:10|max:2000',
                 'short_description' => 'nullable|max:500',
@@ -84,6 +91,12 @@ class ProductController extends Controller
                 'sku.max' => 'SKU must not exceed 100 characters',
                 'sku.regex' => 'SKU must contain only letters, numbers, and hyphens',
                 'sku.unique' => 'This SKU already exists',
+
+                'slug.required' => 'Slug is required',
+                'slug.min' => 'Slug must be at least 3 characters',
+                'slug.max' => 'Slug must not exceed 255 characters',
+                'slug.regex' => 'Slug must contain only lowercase letters, numbers, and hyphens',
+                'slug.unique' => 'This slug already exists',
 
                 'category.required' => 'Category is required',
                 'category.in' => 'Category must be one of: male, female, or kids',

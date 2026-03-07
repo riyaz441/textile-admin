@@ -48,6 +48,17 @@
 
                             <div class="row mb-3">
                                 <div class="col-md-6">
+                                    <label class="form-label" for="slug">Slug <span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control @error('slug') is-invalid @enderror"
+                                        id="slug" name="slug" placeholder="Enter product slug"
+                                        value="{{ old('slug', isset($product) ? $product->slug : '') }}">
+                                    @error('slug')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-6">
                                     <label class="form-label" for="category">Category <span
                                             class="text-danger">*</span></label>
                                     <select class="form-select @error('category') is-invalid @enderror" id="category"
