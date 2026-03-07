@@ -12,7 +12,7 @@
         <link rel="icon" type="image/png" href="{{ asset("website/assets/img/favicon.png") }}">
     </head>
     <body>
-        @include('"'"'website.layout.header'"'"')
+        @include("website.layout.header")
 
         <!-- Start Page Title -->
         <div class="page-title-area">
@@ -20,7 +20,7 @@
                 <div class="page-title-content">
                     <h2>About Us</h2>
                     <ul>
-                        <li><a href="{{ route('"'"'index'"'"') }}">Home</a></li>
+                        <li><a href="{{ route("index") }}">Home</a></li>
                         <li>About Us</li>
                     </ul>
                 </div>
@@ -56,8 +56,8 @@
             </div>
         </section>
 
-        @include('"'"'website.layout.footer'"'"')
-        <div class="go-top"><i class='"'"'bx bx-up-arrow-alt'"'"'></i></div>
+        @include("website.layout.footer")
+        <div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
 
         <script src="{{ asset("website/assets/js/jquery.min.js") }}"></script>
         <script src="{{ asset("website/assets/js/bootstrap.bundle.min.js") }}"></script>

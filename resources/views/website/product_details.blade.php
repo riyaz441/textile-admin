@@ -11,15 +11,15 @@
         <link rel="icon" type="image/png" href="{{ asset("website/assets/img/favicon.png") }}">
     </head>
     <body>
-        @include('"'"'website.layout.header'"'"')
+        @include("website.layout.header")
 
         <div class="page-title-area">
             <div class="container">
                 <div class="page-title-content">
                     <h2>Product Details</h2>
                     <ul>
-                        <li><a href="{{ route('"'"'index'"'"') }}">Home</a></li>
-                        <li><a href="{{ route('"'"'products'"'"') }}">Products</a></li>
+                        <li><a href="{{ route("index") }}">Home</a></li>
+                        <li><a href="{{ route("products") }}">Products</a></li>
                         <li>Details</li>
                     </ul>
                 </div>
@@ -39,11 +39,11 @@
                             <span style="font-size: 28px; color: #ff6b6b; font-weight: bold;">$250</span>
                         </div>
                         <div class="mb-3">
-                            <i class='"'"'bx bxs-star'"'"'></i>
-                            <i class='"'"'bx bxs-star'"'"'></i>
-                            <i class='"'"'bx bxs-star'"'"'></i>
-                            <i class='"'"'bx bxs-star'"'"'></i>
-                            <i class='"'"'bx bxs-star'"'"'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
                             <span class="ms-2">(5 reviews)</span>
                         </div>
                         <p class="mb-4" style="font-size: 16px; line-height: 1.6;">Premium quality long sleeve t-shirt. Made with sustainable fabrics. Perfect for casual and comfortable wear. Available in multiple colors and sizes.</p>
@@ -60,15 +60,15 @@
                         </div>
                         <div class="d-flex gap-2">
                             <button class="btn btn-primary btn-lg flex-grow-1">Add to Cart</button>
-                            <button class="btn btn-outline-primary btn-lg"><i class='"'"'bx bx-heart'"'"'></i></button>
+                            <button class="btn btn-outline-primary btn-lg"><i class='bx bx-heart'></i></button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        @include('"'"'website.layout.footer'"'"')
-        <div class="go-top"><i class='"'"'bx bx-up-arrow-alt'"'"'></i></div>
+        @include("website.layout.footer")
+        <div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
 
         <script src="{{ asset("website/assets/js/jquery.min.js") }}"></script>
         <script src="{{ asset("website/assets/js/bootstrap.min.js") }}"></script>

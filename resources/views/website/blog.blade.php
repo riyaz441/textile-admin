@@ -26,7 +26,7 @@
     </head>
     <body>
 
-        @include('"'"'website.layout.header'"'"')
+        @include("website.layout.header")
 
         <!-- Start Page Title -->
         <div class="page-title-area">
@@ -34,7 +34,7 @@
                 <div class="page-title-content">
                     <h2>Blog</h2>
                     <ul>
-                        <li><a href="{{ route('"'"'index'"'"') }}">Home</a></li>
+                        <li><a href="{{ route('index') }}">Home</a></li>
                         <li>Blog</li>
                     </ul>
                 </div>
@@ -84,19 +84,19 @@
                 </div>
 
                 <div class="pagination-area text-center mt-5">
-                    <a href="#" class="btn btn-sm me-2"><i class='"'"'bx bx-chevron-left'"'"'></i></a>
+                    <a href="#" class="btn btn-sm me-2"><i class='bx bx-chevron-left'></i></a>
                     <span class="btn btn-sm active">1</span>
                     <a href="#" class="btn btn-sm">2</a>
                     <a href="#" class="btn btn-sm">3</a>
-                    <a href="#" class="btn btn-sm ms-2"><i class='"'"'bx bx-chevron-right'"'"'></i></a>
+                    <a href="#" class="btn btn-sm ms-2"><i class='bx bx-chevron-right'></i></a>
                 </div>
             </div>
         </section>
         <!-- End Blog Area -->
 
-        @include('"'"'website.layout.footer'"'"')
+        @include("website.layout.footer")
 
-        <div class="go-top"><i class='"'"'bx bx-up-arrow-alt'"'"'></i></div>
+        <div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
 
         <script src="{{ asset("website/assets/js/jquery.min.js") }}"></script>
         <script src="{{ asset("website/assets/js/bootstrap.bundle.min.js") }}"></script>
