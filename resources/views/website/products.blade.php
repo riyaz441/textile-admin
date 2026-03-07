@@ -4,73 +4,66 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="{{ asset('"'"'website/assets/css/bootstrap.min.css'"'"') }}">
-        <link rel="stylesheet" href="{{ asset('"'"'website/assets/css/animate.min.css'"'"') }}">
-        <link rel="stylesheet" href="{{ asset('"'"'website/assets/css/boxicons.min.css'"'"') }}">
-        <link rel="stylesheet" href="{{ asset('"'"'website/assets/css/style.css'"'"') }}">
+        <link rel="stylesheet" href="{{ asset("website/assets/css/bootstrap.min.css") }}">
+        <link rel="stylesheet" href="{{ asset("website/assets/css/animate.min.css") }}">
+        <link rel="stylesheet" href="{{ asset("website/assets/css/boxicons.min.css") }}">
+        <link rel="stylesheet" href="{{ asset("website/assets/css/style.css") }}">
         <title>Products - Textile eCommerce</title>
-        <link rel="icon" type="image/png" href="{{ asset('"'"'website/assets/img/favicon.png'"'"') }}">
+        <link rel="icon" type="image/png" href="{{ asset("website/assets/img/favicon.png") }}">
     </head>
     <body>
-        @include('"'"'website.layout.header'"'"')
-        
+        @include('website.layout.header')
+
         <!-- Start Page Title -->
         <div class="page-title-area">
             <div class="container">
                 <div class="page-title-content">
                     <h2>Products</h2>
                     <ul>
-                        <li><a href="{{ route('"'"'index'"'"') }}">Home</a></li>
+                        <li><a href="{{ route('index') }}">Home</a></li>
                         <li>Products</li>
                     </ul>
                 </div>
             </div>
         </div>
-        
+
         <!-- Start Products Area -->
         <section class="products-area pt-100 pb-70">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="products-box">
-                            <h3><a href="{{ route('"'"'products.show'"'"', 1) }}">Product 1</a></h3>
+                            <h3><a href="{{ route('products.show', 1) }}">Product 1</a></h3>
                             <p>Premium quality textile</p>
-                            <a href="{{ route('"'"'products.show'"'"', 1) }}" class="btn">View</a>
+                            <a href="{{ route('products.show', 1) }}" class="btn">View</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="products-box">
-                            <h3><a href="{{ route('"'"'products.show'"'"', 2) }}">Product 2</a></h3>
+                            <h3><a href="{{ route('products.show', 2) }}">Product 2</a></h3>
                             <p>Premium quality textile</p>
-                            <a href="{{ route('"'"'products.show'"'"', 2) }}" class="btn">View</a>
+                            <a href="{{ route('products.show', 2) }}" class="btn">View</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="products-box">
-                            <h3><a href="{{ route('"'"'products.show'"'"', 3) }}">Product 3</a></h3>
+                            <h3><a href="{{ route('products.show', 3) }}">Product 3</a></h3>
                             <p>Premium quality textile</p>
-                            <a href="{{ route('"'"'products.show'"'"', 3) }}" class="btn">View</a>
+                            <a href="{{ route('products.show', 3) }}" class="btn">View</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        
-        @include('"'"'website.layout.footer'"'"')
-        <div class="go-top"><i class='"'"'bx bx-up-arrow-alt'"'"'></i></div>
-        
-        <script src="{{ asset('"'"'website/assets/js/jquery.min.js'"'"') }}"></script>
-        <script src="{{ asset('"'"'website/assets/js/bootstrap.bundle.min.js'"'"') }}"></script>
-        <script src="{{ asset('"'"'website/assets/js/main.js'"'"') }}"></script>
+
+        @include('website.layout.footer')
+        <div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
+
+        <script src="{{ asset("website/assets/js/jquery.min.js") }}"></script>
+        <script src="{{ asset("website/assets/js/bootstrap.bundle.min.js") }}"></script>
+        <script src="{{ asset("website/assets/js/main.js") }}"></script>
     </body>
 </html>
-'"@;
-
-Set-Content -Path 'e:\xampp\htdocs\textile-admin\resources\views\website\products.blade.php' -Value $productsContent
-Write-Host "products.blade.php updated"
-
-# Update product_details.blade.php
-$productDetailsContent = @'
 <!DOCTYPE html>
 <html lang="zxx">
     <head>
@@ -85,7 +78,7 @@ $productDetailsContent = @'
     </head>
     <body>
         @include('"'"'website.layout.header'"'"')
-        
+
         <!-- Start Page Title -->
         <div class="page-title-area">
             <div class="container">
@@ -99,7 +92,7 @@ $productDetailsContent = @'
                 </div>
             </div>
         </div>
-        
+
         <!-- Start Product Details Area -->
         <section class="product-details-area pt-100 pb-70">
             <div class="container">
@@ -132,10 +125,10 @@ $productDetailsContent = @'
                 </div>
             </div>
         </section>
-        
+
         @include('"'"'website.layout.footer'"'"')
         <div class="go-top"><i class='"'"'bx bx-up-arrow-alt'"'"'></i></div>
-        
+
         <script src="{{ asset('"'"'website/assets/js/jquery.min.js'"'"') }}"></script>
         <script src="{{ asset('"'"'website/assets/js/bootstrap.bundle.min.js'"'"') }}"></script>
         <script src="{{ asset('"'"'website/assets/js/main.js'"'"') }}"></script>
@@ -162,7 +155,7 @@ $aboutContent = @'
     </head>
     <body>
         @include('"'"'website.layout.header'"'"')
-        
+
         <!-- Start Page Title -->
         <div class="page-title-area">
             <div class="container">
@@ -175,7 +168,7 @@ $aboutContent = @'
                 </div>
             </div>
         </div>
-        
+
         <!-- Start About Area -->
         <section class="about-area ptb-100">
             <div class="container">
@@ -187,10 +180,10 @@ $aboutContent = @'
                         <div class="about-content ps-4">
                             <h2>Welcome to Textile Store</h2>
                             <p>We are a leading textile eCommerce platform dedicated to providing high-quality fabrics and clothing to customers worldwide. With over a decade of experience, we pride ourselves on offering premium products at competitive prices.</p>
-                            
+
                             <h3 class="mt-4">Our Mission</h3>
                             <p>Our mission is to make quality textiles and clothing accessible to everyone. We believe in sustainable practices and ethical sourcing of all our materials.</p>
-                            
+
                             <h3 class="mt-4">Why Choose Us</h3>
                             <ul>
                                 <li>Premium quality products</li>
@@ -204,10 +197,10 @@ $aboutContent = @'
                 </div>
             </div>
         </section>
-        
+
         @include('"'"'website.layout.footer'"'"')
         <div class="go-top"><i class='"'"'bx bx-up-arrow-alt'"'"'></i></div>
-        
+
         <script src="{{ asset('"'"'website/assets/js/jquery.min.js'"'"') }}"></script>
         <script src="{{ asset('"'"'website/assets/js/bootstrap.bundle.min.js'"'"') }}"></script>
         <script src="{{ asset('"'"'website/assets/js/main.js'"'"') }}"></script>
@@ -234,7 +227,7 @@ $blogContent = @'
     </head>
     <body>
         @include('"'"'website.layout.header'"'"')
-        
+
         <!-- Start Page Title -->
         <div class="page-title-area">
             <div class="container">
@@ -247,7 +240,7 @@ $blogContent = @'
                 </div>
             </div>
         </div>
-        
+
         <!-- Start Blog Area -->
         <section class="blog-area ptb-100">
             <div class="container">
@@ -298,10 +291,10 @@ $blogContent = @'
                 </div>
             </div>
         </section>
-        
+
         @include('"'"'website.layout.footer'"'"')
         <div class="go-top"><i class='"'"'bx bx-up-arrow-alt'"'"'></i></div>
-        
+
         <script src="{{ asset('"'"'website/assets/js/jquery.min.js'"'"') }}"></script>
         <script src="{{ asset('"'"'website/assets/js/bootstrap.bundle.min.js'"'"') }}"></script>
         <script src="{{ asset('"'"'website/assets/js/main.js'"'"') }}"></script>
@@ -345,7 +338,7 @@ Remove-Item 'e:\xampp\htdocs\textile-admin\resources\views\website\products.blad
     </head>
     <body>
         @include('"'"'website.layout.header'"'"')
-        
+
         <!-- Start Page Title -->
         <div class="page-title-area">
             <div class="container">
@@ -358,7 +351,7 @@ Remove-Item 'e:\xampp\htdocs\textile-admin\resources\views\website\products.blad
                 </div>
             </div>
         </div>
-        
+
         <!-- Start Products Area -->
         <section class="products-area pt-100 pb-70">
             <div class="container">
@@ -374,7 +367,7 @@ Remove-Item 'e:\xampp\htdocs\textile-admin\resources\views\website\products.blad
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                         <div class="products-box border rounded p-3">
                             <img src="{{ asset('"'"'website/assets/img/products/img14.jpg'"'"') }}" alt="product" style="width: 100%; height: 250px; object-fit: cover;" class="mb-3">
@@ -386,7 +379,7 @@ Remove-Item 'e:\xampp\htdocs\textile-admin\resources\views\website\products.blad
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                         <div class="products-box border rounded p-3">
                             <img src="{{ asset('"'"'website/assets/img/products/img15.jpg'"'"') }}" alt="product" style="width: 100%; height: 250px; object-fit: cover;" class="mb-3">
@@ -401,10 +394,10 @@ Remove-Item 'e:\xampp\htdocs\textile-admin\resources\views\website\products.blad
                 </div>
             </div>
         </section>
-        
+
         @include('"'"'website.layout.footer'"'"')
         <div class="go-top"><i class='"'"'bx bx-up-arrow-alt'"'"'></i></div>
-        
+
         <script src="{{ asset('"'"'website/assets/js/jquery.min.js'"'"') }}"></script>
         <script src="{{ asset('"'"'website/assets/js/bootstrap.min.js'"'"') }}"></script>
         <script src="{{ asset('"'"'website/assets/js/main.js'"'"') }}"></script>

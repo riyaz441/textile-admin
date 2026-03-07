@@ -3,16 +3,16 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="{{ asset('"'"'website/assets/css/bootstrap.min.css'"'"') }}">
-        <link rel="stylesheet" href="{{ asset('"'"'website/assets/css/boxicons.min.css'"'"') }}">
-        <link rel="stylesheet" href="{{ asset('"'"'website/assets/css/style.css'"'"') }}">
-        <link rel="stylesheet" href="{{ asset('"'"'website/assets/css/responsive.css'"'"') }}">
+        <link rel="stylesheet" href="{{ asset("website/assets/css/bootstrap.min.css") }}">
+        <link rel="stylesheet" href="{{ asset("website/assets/css/boxicons.min.css") }}">
+        <link rel="stylesheet" href="{{ asset("website/assets/css/style.css") }}">
+        <link rel="stylesheet" href="{{ asset("website/assets/css/responsive.css") }}">
         <title>Product Details</title>
-        <link rel="icon" type="image/png" href="{{ asset('"'"'website/assets/img/favicon.png'"'"') }}">
+        <link rel="icon" type="image/png" href="{{ asset("website/assets/img/favicon.png") }}">
     </head>
     <body>
         @include('"'"'website.layout.header'"'"')
-        
+
         <div class="page-title-area">
             <div class="container">
                 <div class="page-title-content">
@@ -25,12 +25,12 @@
                 </div>
             </div>
         </div>
-        
+
         <section class="product-details-area pt-100 pb-70">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-5 col-md-12 mb-4">
-                        <img src="{{ asset('"'"'website/assets/img/products/img13.jpg'"'"') }}" alt="product" style="width: 100%; height: auto;" class="border rounded">
+                        <img src="{{ asset("website/assets/img/products/img13.jpg") }}" alt="product" style="width: 100%; height: auto;" class="border rounded">
                     </div>
                     <div class="col-lg-7 col-md-12">
                         <h1 class="mb-3">Long Sleeve Leopard T-Shirt</h1>
@@ -66,12 +66,12 @@
                 </div>
             </div>
         </section>
-        
+
         @include('"'"'website.layout.footer'"'"')
         <div class="go-top"><i class='"'"'bx bx-up-arrow-alt'"'"'></i></div>
-        
-        <script src="{{ asset('"'"'website/assets/js/jquery.min.js'"'"') }}"></script>
-        <script src="{{ asset('"'"'website/assets/js/bootstrap.min.js'"'"') }}"></script>
-        <script src="{{ asset('"'"'website/assets/js/main.js'"'"') }}"></script>
+
+        <script src="{{ asset("website/assets/js/jquery.min.js") }}"></script>
+        <script src="{{ asset("website/assets/js/bootstrap.min.js") }}"></script>
+        <script src="{{ asset("website/assets/js/main.js") }}"></script>
     </body>
 </html>
