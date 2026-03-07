@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 04, 2026 at 06:16 PM
+-- Generation Time: Mar 07, 2026 at 08:01 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `textile-admin`
+-- Database: `textile_admin`
 --
 
 -- --------------------------------------------------------
@@ -113,7 +113,7 @@ CREATE TABLE `email_configs` (
 --
 
 INSERT INTO `email_configs` (`id`, `protocol`, `mailtype`, `smtp_host`, `smtp_port`, `sender_email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'smtp', 'html', 'smtp.gmail.com', '587', 'no-reply@goldpost.com', 'eyJpdiI6Ik5yUmkxU2hYaGpyRGpFVXBVZVgxT2c9PSIsInZhbHVlIjoibDNycTVMSkNab2o3ZDhJck93Nkozdz09IiwibWFjIjoiMjJlOGExNmMyZjk5NDIzMWYyMGY1OGM3ZjY0ZmU4NTE2YTBkMjY5OTQ0MmRiYWIxNjIwMWIxYmZjN2Y2ODQxMSIsInRhZyI6IiJ9', '2026-03-04 09:12:14', '2026-03-04 09:12:14');
+(1, 'smtp', 'html', 'smtp.gmail.com', '587', 'no-reply@goldpost.com', 'eyJpdiI6Inc5aHh4MXRGL01sdStINWhGRExwQVE9PSIsInZhbHVlIjoiSmg4Ym1MSWxvNEJVTlgwOVZIdmJWUT09IiwibWFjIjoiODY3NmZjZWEyMjkwM2NlZmI4YjIyN2EzZjQ1MjM1ODY1ZDQxZTNkYmRlYzUzODFmNzg3M2E3YTI4ZTI5NTBmMyIsInRhZyI6IiJ9', '2026-03-03 17:23:48', '2026-03-03 17:23:48');
 
 -- --------------------------------------------------------
 
@@ -191,8 +191,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (6, '2025_03_29_042036_create_websettings_table', 1),
 (7, '2026_02_02_000000_create_companies_table', 1),
 (8, '2026_02_02_000001_create_branches_table', 1),
+(9, '2026_02_09_123630_create_application_settings_table', 1),
 (10, '2026_03_04_112058_create_products_table', 2),
-(11, '2026_03_04_120000_add_category_to_products_table', 3);
+(11, '2026_03_04_120000_add_category_to_products_table', 2),
+(12, '2026_03_08_000000_add_slug_to_products_table', 3);
 
 -- --------------------------------------------------------
 
@@ -227,7 +229,7 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`id`, `agent`, `merchant_id`, `api_key`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Razorpay', 'rzp_merchant_001', 'change-me', 'Test', '2026-03-04 09:13:02', '2026-03-04 09:13:02');
+(1, 'Razorpay', 'rzp_merchant_001', 'change-me', 'Test', '2026-03-03 17:27:11', '2026-03-03 17:27:11');
 
 -- --------------------------------------------------------
 
@@ -239,6 +241,7 @@ CREATE TABLE `products` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `sku` varchar(255) NOT NULL,
+  `slug` varchar(255) DEFAULT NULL,
   `category` enum('male','female','kids') DEFAULT 'male',
   `description` text NOT NULL,
   `short_description` text DEFAULT NULL,
@@ -261,10 +264,8 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `sku`, `category`, `description`, `short_description`, `price`, `cost_price`, `discount_percentage`, `image`, `image_1`, `image_2`, `image_3`, `stock_quantity`, `min_stock_level`, `rating`, `status`, `created_at`, `updated_at`) VALUES
-(2, 'New Green Jacket', 'Men-001', 'male', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore', 750.00, 1150.00, 5.00, 'assets/products/1772641978_image.jpg', 'assets/products/1772641978_image_1.jpg', 'assets/products/1772641978_image_2.jpg', 'assets/products/1772641978_image_3.jpg', 50, 20, 5.00, 'Active', '2026-03-04 11:02:58', '2026-03-04 11:02:58'),
-(3, 'classic dress', 'women-001', 'female', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore.', 850.00, 1500.00, 20.00, 'assets/products/1772642247_image.jpg', 'assets/products/1772642247_image_1.jpg', 'assets/products/1772642247_image_2.jpg', 'assets/products/1772642247_image_3.jpg', 75, 20, 4.00, 'Active', '2026-03-04 11:07:27', '2026-03-04 11:07:27'),
-(4, 'classic kids', 'kids-001', 'kids', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore.', 500.00, 850.00, 20.00, 'assets/products/1772643006_image.jpg', 'assets/products/1772643006_image_1.jpg', 'assets/products/1772643006_image_2.jpg', 'assets/products/1772643006_image_3.jpg', 15, 5, 3.00, 'Active', '2026-03-04 11:20:06', '2026-03-04 11:20:06');
+INSERT INTO `products` (`id`, `name`, `sku`, `slug`, `category`, `description`, `short_description`, `price`, `cost_price`, `discount_percentage`, `image`, `image_1`, `image_2`, `image_3`, `stock_quantity`, `min_stock_level`, `rating`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Gold', 'PRD-001', 'product', 'male', 'tttthrtrtjdtrjtrj', NULL, 1222.00, NULL, 0.00, 'assets/products/1772730849_image.jpg', NULL, NULL, NULL, 5, 0, 5.00, 'Active', '2026-03-05 11:44:09', '2026-03-07 13:30:37');
 
 -- --------------------------------------------------------
 
@@ -286,7 +287,26 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('JuZ0XulKhcTRWYs3XcP70882WNwCO8ZnDq5TO9Xo', 1, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiNkFJc21hdDNQenhPNGV2aG9rSWhDdmxmMU5oeGYwVjNvZDVBRzlrOCI7czoxMDoiY29tcGFueV9pZCI7czozOiJhbGwiO3M6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjIxOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTIkc1VGenNYUFlkYVAyeXltRnNxRW5nLkcyZ3pqVHFEbVlHcXFtckNxMXAuaGNiblpMMHZoSjIiO30=', 1772644482);
+('UOs6DDISw99t2ryXqFJXCLg5sl3DbrXXnbXtBfcE', 1, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiR1VBc21nUWNNSVVEVUNjYUdUMWhwU2VHdmZMWnlDbXB1SWlDcU44NiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kYXNoYm9hcmQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTIkSUZ2bXV0cUNYVHhSWWFwTnVHWFJjdTFkMW9XRXJEanRYY1ZwWDRvVmxRZlZDUHNqYkJmTGEiO30=', 1772910095);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE `settings` (
+  `setting_id` int(10) UNSIGNED NOT NULL,
+  `company_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `branch_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `setting_key` varchar(100) NOT NULL,
+  `setting_value` text DEFAULT NULL,
+  `setting_type` enum('string','number','boolean','json') NOT NULL DEFAULT 'string',
+  `category` varchar(50) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -310,7 +330,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', '2026-03-04 09:18:40', '$2y$12$sUFzsXPYdaP2yymFsqEng.G2gzjTqDmYGqqmrCq1p.hcbnZL0vhJ2', NULL, '2026-03-04 09:18:40', '2026-03-04 09:18:40');
+(1, 'admin', 'admin@gmail.com', '2026-03-03 17:18:46', '$2y$12$IFvmutqCXTxRYapNuGXRcu1d1oWErDjtXcVpX4oVlQfVCPsjbBfLa', NULL, '2026-03-03 17:18:46', '2026-03-03 17:18:46');
 
 -- --------------------------------------------------------
 
@@ -338,7 +358,7 @@ CREATE TABLE `websettings` (
 --
 
 INSERT INTO `websettings` (`id`, `site_name`, `site_url`, `contact_person`, `contact_email`, `contact_phone`, `sales_email`, `address`, `logo`, `fav_icon`, `created_at`, `updated_at`) VALUES
-(1, 'GoldPost', 'http://localhost', 'admin', 'admin@goldpost.com', '9854685484', 'goldpostsales@gmail.com', '123 Main Street, City', 'logo.png', 'fav_icon.png', '2026-03-04 09:13:48', '2026-03-04 09:13:48');
+(1, 'GoldPost', 'http://localhost', 'Admin', 'admin@goldpost.com', '9854685484', 'goldpostsales@gmail.com', '123 Main Street, City', 'logo.png', 'fav_icon.png', '2026-03-03 17:21:49', '2026-03-03 17:21:49');
 
 --
 -- Indexes for dumped tables
@@ -420,7 +440,8 @@ ALTER TABLE `payments`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `products_sku_unique` (`sku`);
+  ADD UNIQUE KEY `products_sku_unique` (`sku`),
+  ADD UNIQUE KEY `products_slug_unique` (`slug`);
 
 --
 -- Indexes for table `sessions`
@@ -429,6 +450,14 @@ ALTER TABLE `sessions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `sessions_user_id_index` (`user_id`),
   ADD KEY `sessions_last_activity_index` (`last_activity`);
+
+--
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`setting_id`),
+  ADD KEY `settings_company_id_index` (`company_id`),
+  ADD KEY `settings_branch_id_index` (`branch_id`);
 
 --
 -- Indexes for table `users`
@@ -481,7 +510,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `payments`
@@ -493,7 +522,13 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `setting_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
