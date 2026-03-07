@@ -14,7 +14,10 @@ use App\Http\Controllers\ProductController;
 
 
 /* temp view route for testing */
-Route::view('/', 'website/index');
+/* Website - Public Routes */
+Route::get('/', function () {
+    return view('website.index');
+})->name('index');
 
 /* Website */
 // Route::get('/', [WebsiteController::class, 'index'])->name('index');
