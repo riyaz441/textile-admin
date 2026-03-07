@@ -7,23 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Links of CSS files -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/boxicons.min.css">
-    <link rel="stylesheet" href="assets/css/flaticon.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
-    <link rel="stylesheet" href="assets/css/nice-select.min.css">
-    <link rel="stylesheet" href="assets/css/slick.min.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/meanmenu.min.css">
-    <link rel="stylesheet" href="assets/css/rangeSlider.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/dark.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="{{ asset('website/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/assets/css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/assets/css/boxicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/assets/css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/assets/css/magnific-popup.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/assets/css/nice-select.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/assets/css/slick.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/assets/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/assets/css/meanmenu.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/assets/css/rangeSlider.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/assets/css/dark.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/assets/css/responsive.css') }}">
 
     <title>Textile</title>
 
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="{{ asset('website/assets/img/favicon.png') }}">
 </head>
 
 <body>
@@ -136,7 +136,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-md-12">
                     <div class="categories-box">
-                        <img src="assets/img/categories/img5.jpg" alt="image">
+                        <img src="{{ asset('website/assets/img/categories/img5.jpg') }}" alt="image">
 
                         <div class="content">
                             <h3>New Collections!</h3>
@@ -150,7 +150,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="categories-box">
-                                <img src="assets/img/categories/img6.jpg" alt="image">
+                                <img src="{{ asset('website/assets/img/categories/img6.jpg') }}" alt="image">
 
                                 <div class="content">
                                     <h3>Our Popular Products</h3>
@@ -162,7 +162,7 @@
 
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="categories-box">
-                                <img src="assets/img/categories/img7.jpg" alt="image">
+                                <img src="{{ asset('website/assets/img/categories/img7.jpg') }}" alt="image">
 
                                 <div class="content">
                                     <h3>Hot Trending Products</h3>
@@ -174,7 +174,7 @@
 
                         <div class="col-lg-12 col-md-12">
                             <div class="categories-box">
-                                <img src="assets/img/categories/img8.jpg" alt="image">
+                                <img src="{{ asset('website/assets/img/categories/img8.jpg') }}" alt="image">
 
                                 <div class="content">
                                     <h3>Winter Collections!</h3>
@@ -203,8 +203,8 @@
                     <div class="products-box">
                         <div class="products-image">
                             <a href="products-type-2.html">
-                                <img src="assets/img/products/img13.jpg" class="main-image" alt="image">
-                                <img src="assets/img/products/img-hover13.jpg" class="hover-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img13.jpg') }}" class="main-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img-hover13.jpg') }}" class="hover-image" alt="image">
                             </a>
 
                             <div class="products-button">
@@ -270,8 +270,8 @@
                     <div class="products-box">
                         <div class="products-image">
                             <a href="products-type-2.html">
-                                <img src="assets/img/products/img14.jpg" class="main-image" alt="image">
-                                <img src="assets/img/products/img-hover14.jpg" class="hover-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img14.jpg') }}" class="main-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img-hover14.jpg') }}" class="hover-image" alt="image">
                             </a>
 
                             <div class="products-button">
@@ -329,8 +329,8 @@
                     <div class="products-box">
                         <div class="products-image">
                             <a href="products-type-2.html">
-                                <img src="assets/img/products/img15.jpg" class="main-image" alt="image">
-                                <img src="assets/img/products/img-hover15.jpg" class="hover-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img15.jpg') }}" class="main-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img-hover15.jpg') }}" class="hover-image" alt="image">
                             </a>
 
                             <div class="products-button">
@@ -387,8 +387,8 @@
                     <div class="products-box">
                         <div class="products-image">
                             <a href="products-type-2.html">
-                                <img src="assets/img/products/img16.jpg" class="main-image" alt="image">
-                                <img src="assets/img/products/img-hover16.jpg" class="hover-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img16.jpg') }}" class="main-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img-hover16.jpg') }}" class="hover-image" alt="image">
                             </a>
 
                             <div class="products-button">
@@ -447,8 +447,8 @@
                     <div class="products-box">
                         <div class="products-image">
                             <a href="products-type-2.html">
-                                <img src="assets/img/products/img17.jpg" class="main-image" alt="image">
-                                <img src="assets/img/products/img-hover17.jpg" class="hover-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img17.jpg') }}" class="main-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img-hover17.jpg') }}" class="hover-image" alt="image">
                             </a>
 
                             <div class="products-button">
@@ -511,8 +511,8 @@
                     <div class="products-box">
                         <div class="products-image">
                             <a href="products-type-2.html">
-                                <img src="assets/img/products/img18.jpg" class="main-image" alt="image">
-                                <img src="assets/img/products/img-hover18.jpg" class="hover-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img18.jpg') }}" class="main-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img-hover18.jpg') }}" class="hover-image" alt="image">
                             </a>
 
                             <div class="products-button">
@@ -600,8 +600,8 @@
                     <div class="products-box">
                         <div class="products-image">
                             <a href="products-type-2.html">
-                                <img src="assets/img/products/img7.jpg" class="main-image" alt="image">
-                                <img src="assets/img/products/img-hover7.jpg" class="hover-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img7.jpg') }}" class="main-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img-hover7.jpg') }}" class="hover-image" alt="image">
                             </a>
 
                             <div class="products-button">
@@ -667,8 +667,8 @@
                     <div class="products-box">
                         <div class="products-image">
                             <a href="products-type-2.html">
-                                <img src="assets/img/products/img8.jpg" class="main-image" alt="image">
-                                <img src="assets/img/products/img-hover8.jpg" class="hover-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img8.jpg') }}" class="main-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img-hover8.jpg') }}" class="hover-image" alt="image">
                             </a>
 
                             <div class="products-button">
@@ -726,8 +726,8 @@
                     <div class="products-box">
                         <div class="products-image">
                             <a href="products-type-2.html">
-                                <img src="assets/img/products/img9.jpg" class="main-image" alt="image">
-                                <img src="assets/img/products/img-hover9.jpg" class="hover-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img9.jpg') }}" class="main-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img-hover9.jpg') }}" class="hover-image" alt="image">
                             </a>
 
                             <div class="products-button">
@@ -785,8 +785,8 @@
                     <div class="products-box">
                         <div class="products-image">
                             <a href="products-type-2.html">
-                                <img src="assets/img/products/img10.jpg" class="main-image" alt="image">
-                                <img src="assets/img/products/img-hover10.jpg" class="hover-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img10.jpg') }}" class="main-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img-hover10.jpg') }}" class="hover-image" alt="image">
                             </a>
 
                             <div class="products-button">
@@ -845,8 +845,8 @@
                     <div class="products-box">
                         <div class="products-image">
                             <a href="products-type-2.html">
-                                <img src="assets/img/products/img11.jpg" class="main-image" alt="image">
-                                <img src="assets/img/products/img-hover11.jpg" class="hover-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img11.jpg') }}" class="main-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img-hover11.jpg') }}" class="hover-image" alt="image">
                             </a>
 
                             <div class="products-button">
@@ -909,8 +909,8 @@
                     <div class="products-box">
                         <div class="products-image">
                             <a href="products-type-2.html">
-                                <img src="assets/img/products/img12.jpg" class="main-image" alt="image">
-                                <img src="assets/img/products/img-hover12.jpg" class="hover-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img12.jpg') }}" class="main-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img-hover12.jpg') }}" class="hover-image" alt="image">
                             </a>
 
                             <div class="products-button">
@@ -1038,8 +1038,8 @@
                     <div class="products-box">
                         <div class="products-image">
                             <a href="products-type-2.html">
-                                <img src="assets/img/products/img1.jpg" class="main-image" alt="image">
-                                <img src="assets/img/products/img-hover1.jpg" class="hover-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img1.jpg') }}" class="main-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img-hover1.jpg') }}" class="hover-image" alt="image">
                             </a>
 
                             <div class="products-button">
@@ -1105,8 +1105,8 @@
                     <div class="products-box">
                         <div class="products-image">
                             <a href="products-type-2.html">
-                                <img src="assets/img/products/img2.jpg" class="main-image" alt="image">
-                                <img src="assets/img/products/img-hover2.jpg" class="hover-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img2.jpg') }}" class="main-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img-hover2.jpg') }}" class="hover-image" alt="image">
                             </a>
 
                             <div class="products-button">
@@ -1164,8 +1164,8 @@
                     <div class="products-box">
                         <div class="products-image">
                             <a href="products-type-2.html">
-                                <img src="assets/img/products/img3.jpg" class="main-image" alt="image">
-                                <img src="assets/img/products/img-hover3.jpg" class="hover-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img3.jpg') }}" class="main-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img-hover3.jpg') }}" class="hover-image" alt="image">
                             </a>
 
                             <div class="products-button">
@@ -1223,8 +1223,8 @@
                     <div class="products-box">
                         <div class="products-image">
                             <a href="products-type-2.html">
-                                <img src="assets/img/products/img4.jpg" class="main-image" alt="image">
-                                <img src="assets/img/products/img-hover4.jpg" class="hover-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img4.jpg') }}" class="main-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img-hover4.jpg') }}" class="hover-image" alt="image">
                             </a>
 
                             <div class="products-button">
@@ -1283,8 +1283,8 @@
                     <div class="products-box">
                         <div class="products-image">
                             <a href="products-type-2.html">
-                                <img src="assets/img/products/img5.jpg" class="main-image" alt="image">
-                                <img src="assets/img/products/img-hover5.jpg" class="hover-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img5.jpg') }}" class="main-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img-hover5.jpg') }}" class="hover-image" alt="image">
                             </a>
 
                             <div class="products-button">
@@ -1347,8 +1347,8 @@
                     <div class="products-box">
                         <div class="products-image">
                             <a href="products-type-2.html">
-                                <img src="assets/img/products/img6.jpg" class="main-image" alt="image">
-                                <img src="assets/img/products/img-hover6.jpg" class="hover-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img6.jpg') }}" class="main-image" alt="image">
+                                <img src="{{ asset('website/assets/img/products/img-hover6.jpg') }}" class="hover-image" alt="image">
                             </a>
 
                             <div class="products-button">
@@ -1415,27 +1415,27 @@
 
             <div class="brand-slides owl-carousel owl-theme">
                 <div class="brand-item">
-                    <a href="#"><img src="assets/img/brand/img1.png" alt="image"></a>
+                    <a href="#"><img src="{{ asset('website/assets/img/brand/img1.png') }}" alt="image"></a>
                 </div>
 
                 <div class="brand-item">
-                    <a href="#"><img src="assets/img/brand/img2.png" alt="image"></a>
+                    <a href="#"><img src="{{ asset('website/assets/img/brand/img2.png') }}" alt="image"></a>
                 </div>
 
                 <div class="brand-item">
-                    <a href="#"><img src="assets/img/brand/img3.png" alt="image"></a>
+                    <a href="#"><img src="{{ asset('website/assets/img/brand/img3.png') }}" alt="image"></a>
                 </div>
 
                 <div class="brand-item">
-                    <a href="#"><img src="assets/img/brand/img4.png" alt="image"></a>
+                    <a href="#"><img src="{{ asset('website/assets/img/brand/img4.png') }}" alt="image"></a>
                 </div>
 
                 <div class="brand-item">
-                    <a href="#"><img src="assets/img/brand/img5.png" alt="image"></a>
+                    <a href="#"><img src="{{ asset('website/assets/img/brand/img5.png') }}" alt="image"></a>
                 </div>
 
                 <div class="brand-item">
-                    <a href="#"><img src="assets/img/brand/img6.png" alt="image"></a>
+                    <a href="#"><img src="{{ asset('website/assets/img/brand/img6.png') }}" alt="image"></a>
                 </div>
             </div>
         </div>
@@ -1455,7 +1455,7 @@
                     <div class="single-blog-post">
                         <div class="post-image">
                             <a href="single-blog-2.html">
-                                <img src="assets/img/blog/img1.jpg" alt="image">
+                                <img src="{{ asset('website/assets/img/blog/img1.jpg') }}" alt="image">
                             </a>
                             <div class="date">
                                 <span>January 29, 2024</span>
@@ -1474,7 +1474,7 @@
                     <div class="single-blog-post">
                         <div class="post-image">
                             <a href="single-blog-2.html">
-                                <img src="assets/img/blog/img2.jpg" alt="image">
+                                <img src="{{ asset('website/assets/img/blog/img2.jpg') }}" alt="image">
                             </a>
                             <div class="date">
                                 <span>January 29, 2024</span>
@@ -1494,7 +1494,7 @@
                     <div class="single-blog-post">
                         <div class="post-image">
                             <a href="single-blog-2.html">
-                                <img src="assets/img/blog/img3.jpg" alt="image">
+                                <img src="{{ asset('website/assets/img/blog/img3.jpg') }}" alt="image">
                             </a>
                             <div class="date">
                                 <span>January 29, 2024</span>
@@ -1558,22 +1558,22 @@
 
                         <ul class="products-list">
                             <li>
-                                <a href="products-one-row-2.html"><img src="assets/img/products/img1.jpg"
+                                <a href="products-one-row-2.html"><img src="{{ asset('website/assets/img/products/img1.jpg') }}"
                                         alt="image"></a>
                             </li>
 
                             <li>
-                                <a href="products-one-row-2.html"><img src="assets/img/products/img2.jpg"
+                                <a href="products-one-row-2.html"><img src="{{ asset('website/assets/img/products/img2.jpg') }}"
                                         alt="image"></a>
                             </li>
 
                             <li>
-                                <a href="products-one-row-2.html"><img src="assets/img/products/img3.jpg"
+                                <a href="products-one-row-2.html"><img src="{{ asset('website/assets/img/products/img3.jpg') }}"
                                         alt="image"></a>
                             </li>
 
                             <li>
-                                <a href="products-one-row-2.html"><img src="assets/img/products/img4.jpg"
+                                <a href="products-one-row-2.html"><img src="{{ asset('website/assets/img/products/img4.jpg') }}"
                                         alt="image"></a>
                             </li>
                         </ul>
@@ -1600,7 +1600,7 @@
                 <div class="row align-items-center justify-content-center">
                     <div class="col-lg-6 col-md-6">
                         <div class="products-image">
-                            <img src="assets/img/quick-view-img.jpg" alt="image">
+                            <img src="{{ asset('website/assets/img/quick-view-img.jpg') }}" alt="image">
                         </div>
                     </div>
 
@@ -1692,7 +1692,7 @@
                     <div class="products-cart-content">
                         <div class="products-cart">
                             <div class="products-image">
-                                <a href="#"><img src="assets/img/products/img1.jpg" alt="image"></a>
+                                <a href="#"><img src="{{ asset('website/assets/img/products/img1.jpg') }}" alt="image"></a>
                             </div>
 
                             <div class="products-content">
@@ -1709,7 +1709,7 @@
 
                         <div class="products-cart">
                             <div class="products-image">
-                                <a href="#"><img src="assets/img/products/img2.jpg" alt="image"></a>
+                                <a href="#"><img src="{{ asset('website/assets/img/products/img2.jpg') }}" alt="image"></a>
                             </div>
 
                             <div class="products-content">
@@ -1726,7 +1726,7 @@
 
                         <div class="products-cart">
                             <div class="products-image">
-                                <a href="#"><img src="assets/img/products/img3.jpg" alt="image"></a>
+                                <a href="#"><img src="{{ asset('website/assets/img/products/img3.jpg') }}" alt="image"></a>
                             </div>
 
                             <div class="products-content">
@@ -1773,7 +1773,7 @@
                     <div class="products-cart-content">
                         <div class="products-cart">
                             <div class="products-image">
-                                <a href="#"><img src="assets/img/products/img1.jpg" alt="image"></a>
+                                <a href="#"><img src="{{ asset('website/assets/img/products/img1.jpg') }}" alt="image"></a>
                             </div>
 
                             <div class="products-content">
@@ -1790,7 +1790,7 @@
 
                         <div class="products-cart">
                             <div class="products-image">
-                                <a href="#"><img src="assets/img/products/img2.jpg" alt="image"></a>
+                                <a href="#"><img src="{{ asset('website/assets/img/products/img2.jpg') }}" alt="image"></a>
                             </div>
 
                             <div class="products-content">
@@ -1807,7 +1807,7 @@
 
                         <div class="products-cart">
                             <div class="products-image">
-                                <a href="#"><img src="assets/img/products/img3.jpg" alt="image"></a>
+                                <a href="#"><img src="{{ asset('website/assets/img/products/img3.jpg') }}" alt="image"></a>
                             </div>
 
                             <div class="products-content">
@@ -2113,7 +2113,7 @@
 
                         <div class="woocommerce-widget aside-trending-widget">
                             <div class="aside-trending-products">
-                                <img src="assets/img/offer-bg.jpg" alt="image">
+                                <img src="{{ asset('website/assets/img/offer-bg.jpg') }}" alt="image">
 
                                 <div class="category">
                                     <h3>Top Trending</h3>
@@ -2134,23 +2134,23 @@
     <div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
 
     <!-- Links of JS files -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/magnific-popup.min.js"></script>
-    <script src="assets/js/parallax.min.js"></script>
-    <script src="assets/js/rangeSlider.min.js"></script>
-    <script src="assets/js/nice-select.min.js"></script>
-    <script src="assets/js/meanmenu.min.js"></script>
-    <script src="assets/js/isotope.pkgd.min.js"></script>
-    <script src="assets/js/slick.min.js"></script>
-    <script src="assets/js/sticky-sidebar.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/form-validator.min.js"></script>
-    <script src="assets/js/contact-form-script.js"></script>
-    <script src="assets/js/ajaxchimp.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="{{ asset('website/assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('website/assets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('website/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('website/assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('website/assets/js/magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('website/assets/js/parallax.min.js') }}"></script>
+    <script src="{{ asset('website/assets/js/rangeSlider.min.js') }}"></script>
+    <script src="{{ asset('website/assets/js/nice-select.min.js') }}"></script>
+    <script src="{{ asset('website/assets/js/meanmenu.min.js') }}"></script>
+    <script src="{{ asset('website/assets/js/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('website/assets/js/slick.min.js') }}"></script>
+    <script src="{{ asset('website/assets/js/sticky-sidebar.min.js') }}"></script>
+    <script src="{{ asset('website/assets/js/wow.min.js') }}"></script>
+    <script src="{{ asset('website/assets/js/form-validator.min.js') }}"></script>
+    <script src="{{ asset('website/assets/js/contact-form-script.js') }}"></script>
+    <script src="{{ asset('website/assets/js/ajaxchimp.min.js') }}"></script>
+    <script src="{{ asset('website/assets/js/main.js') }}"></script>
 </body>
 
 </html>

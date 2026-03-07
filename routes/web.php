@@ -13,18 +13,16 @@ use App\Http\Controllers\Master\BranchMasterController;
 use App\Http\Controllers\ProductController;
 
 
-/* temp view route for testing */
 /* Website - Public Routes */
 Route::get('/', function () {
     return view('website.index');
 })->name('index');
 
-/* Website */
-// Route::get('/', [WebsiteController::class, 'index'])->name('index');
-// Route::view('/about', 'website/about')->name('about');
-// Route::view('/contact', 'website/contact')->name('contact');
-// Route::get('/products', [WebsiteController::class, 'products'])->name('products');
-// Route::get('/single_product/{id?}', [WebsiteController::class, 'singleProduct'])->name('single-product');
+/* Website Pages */
+Route::view('/products', 'website/products')->name('products');
+Route::view('/products/{id}', 'website/product_details')->name('products.show');
+Route::view('/about', 'website/about')->name('about');
+Route::view('/blog', 'website/blog')->name('blog');
 
 /* ---------------- Login Routes ---------------- */
 Route::view('/login', 'auth_login')->name('login');

@@ -6,61 +6,61 @@
 
         <div class="instagram-slides owl-carousel owl-theme">
             <div class="single-instagram-post">
-                <img src="assets/img/instagram/img1.jpg" alt="image">
+                <img src="{{ asset('website/assets/img/instagram/img1.jpg') }}" alt="image">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="assets/img/instagram/img2.jpg" alt="image">
+                <img src="{{ asset('website/assets/img/instagram/img2.jpg') }}" alt="image">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="assets/img/instagram/img3.jpg" alt="image">
+                <img src="{{ asset('website/assets/img/instagram/img3.jpg') }}" alt="image">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="assets/img/instagram/img4.jpg" alt="image">
+                <img src="{{ asset('website/assets/img/instagram/img4.jpg') }}" alt="image">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="assets/img/instagram/img10.jpg" alt="image">
+                <img src="{{ asset('website/assets/img/instagram/img10.jpg') }}" alt="image">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="assets/img/instagram/img6.jpg" alt="image">
+                <img src="{{ asset('website/assets/img/instagram/img6.jpg') }}" alt="image">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="assets/img/instagram/img7.jpg" alt="image">
+                <img src="{{ asset('website/assets/img/instagram/img7.jpg') }}" alt="image">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="assets/img/instagram/img8.jpg" alt="image">
+                <img src="{{ asset('website/assets/img/instagram/img8.jpg') }}" alt="image">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="assets/img/instagram/img9.jpg" alt="image">
+                <img src="{{ asset('website/assets/img/instagram/img9.jpg') }}" alt="image">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="assets/img/instagram/img5.jpg" alt="image">
+                <img src="{{ asset('website/assets/img/instagram/img5.jpg') }}" alt="image">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/" target="_blank" class="link-btn"></a>
             </div>
@@ -158,15 +158,15 @@
 
                 <div class="col-lg-6 col-md-6">
                     <ul class="payment-types">
-                        <li><a href="#" target="_blank"><img src="assets/img/payment/visa.png"
+                        <li><a href="#" target="_blank"><img src="{{ asset('website/assets/img/payment/visa.png') }}"
                                     alt="image"></a></li>
-                        <li><a href="#" target="_blank"><img src="assets/img/payment/mastercard.png"
+                        <li><a href="#" target="_blank"><img src="{{ asset('website/assets/img/payment/mastercard.png') }}"
                                     alt="image"></a></li>
-                        <li><a href="#" target="_blank"><img src="assets/img/payment/mastercard2.png"
+                        <li><a href="#" target="_blank"><img src="{{ asset('website/assets/img/payment/mastercard2.png') }}"
                                     alt="image"></a></li>
-                        <li><a href="#" target="_blank"><img src="assets/img/payment/visa2.png"
+                        <li><a href="#" target="_blank"><img src="{{ asset('website/assets/img/payment/visa2.png') }}"
                                     alt="image"></a></li>
-                        <li><a href="#" target="_blank"><img src="assets/img/payment/expresscard.png"
+                        <li><a href="#" target="_blank"><img src="{{ asset('website/assets/img/payment/expresscard.png') }}"
                                     alt="image"></a></li>
                     </ul>
                 </div>
