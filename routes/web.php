@@ -19,6 +19,13 @@ Route::get('/', function () {
 })->name('index');
 
 /* Website Pages */
+
+// Route::get('/', [WebsiteController::class, 'index'])->name('index');
+// Route::view('/about', 'website/about')->name('about');
+// Route::view('/contact', 'website/contact')->name('contact');
+// Route::get('/products', [WebsiteController::class, 'products'])->name('products');
+// Route::get('/single_product/{id?}', [WebsiteController::class, 'singleProduct'])->name('single-product');
+
 Route::view('/products', 'website/products')->name('products');
 Route::view('/products/{id}', 'website/product_details')->name('products.show');
 Route::view('/about', 'website/about')->name('about');

@@ -7,19 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Links of CSS files -->
-    <link rel="stylesheet" href="{{ asset('website/assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('website/assets/css/animate.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('website/assets/css/boxicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('website/assets/css/flaticon.css') }}">
-    <link rel="stylesheet" href="{{ asset('website/assets/css/magnific-popup.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('website/assets/css/nice-select.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('website/assets/css/slick.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('website/assets/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('website/assets/css/meanmenu.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('website/assets/css/rangeSlider.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('website/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('website/assets/css/dark.css') }}">
-    <link rel="stylesheet" href="{{ asset('website/assets/css/responsive.css') }}">
+    @include('website.layout.style')
 
     <title>Textile</title>
 
@@ -2133,24 +2121,7 @@
 
     <div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
 
-    <!-- Links of JS files -->
-    <script src="{{ asset('website/assets/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('website/assets/js/popper.min.js') }}"></script>
-    <script src="{{ asset('website/assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('website/assets/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('website/assets/js/magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('website/assets/js/parallax.min.js') }}"></script>
-    <script src="{{ asset('website/assets/js/rangeSlider.min.js') }}"></script>
-    <script src="{{ asset('website/assets/js/nice-select.min.js') }}"></script>
-    <script src="{{ asset('website/assets/js/meanmenu.min.js') }}"></script>
-    <script src="{{ asset('website/assets/js/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('website/assets/js/slick.min.js') }}"></script>
-    <script src="{{ asset('website/assets/js/sticky-sidebar.min.js') }}"></script>
-    <script src="{{ asset('website/assets/js/wow.min.js') }}"></script>
-    <script src="{{ asset('website/assets/js/form-validator.min.js') }}"></script>
-    <script src="{{ asset('website/assets/js/contact-form-script.js') }}"></script>
-    <script src="{{ asset('website/assets/js/ajaxchimp.min.js') }}"></script>
-    <script src="{{ asset('website/assets/js/main.js') }}"></script>
+    @include('website.layout.script')
 </body>
 
 </html>

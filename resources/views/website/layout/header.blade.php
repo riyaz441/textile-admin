@@ -100,9 +100,9 @@
 
                         <li class="nav-item"><a href="{{ route('products') }}" class="nav-link">Product</a></li>
 
-                        <li class="nav-item"><a href="{{ route('products') }}?category=men" class="nav-link">Men</a></li>
+                        <li class="nav-item"><a href="{{ route('products') }}" class="nav-link">Men</a></li>
 
-                        <li class="nav-item"><a href="{{ route('products') }}?category=women" class="nav-link">Women</a></li>
+                        <li class="nav-item"><a href="{{ route('products') }}" class="nav-link">Women</a></li>
 
                         <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About</a></li>
 
