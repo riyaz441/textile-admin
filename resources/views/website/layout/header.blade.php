@@ -101,15 +101,15 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('products') }}" class="nav-link {{ request()->routeIs('products', 'products.show') ? 'active' : '' }}">Product</a>
+                            <a href="{{ route('products') }}" class="nav-link {{ request()->routeIs('products', 'website.products.show') ? 'active' : '' }}">Product</a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('products') }}" class="nav-link {{ request()->routeIs('products', 'products.show') ? 'active' : '' }}">Men</a>
+                            <a href="{{ route('products') }}" class="nav-link {{ request()->routeIs('products', 'website.products.show') ? 'active' : '' }}">Men</a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('products') }}" class="nav-link {{ request()->routeIs('products', 'products.show') ? 'active' : '' }}">Women</a>
+                            <a href="{{ route('products') }}" class="nav-link {{ request()->routeIs('products', 'website.products.show') ? 'active' : '' }}">Women</a>
                         </li>
 
                         <li class="nav-item">

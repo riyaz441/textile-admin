@@ -14,9 +14,7 @@ use App\Http\Controllers\ProductController;
 
 
 /* Website - Public Routes */
-Route::get('/', function () {
-    return view('website.index');
-})->name('index');
+Route::get('/', [WebsiteController::class, 'index'])->name('index');
 
 /* Website Pages */
 
@@ -26,8 +24,8 @@ Route::get('/', function () {
 // Route::get('/products', [WebsiteController::class, 'products'])->name('products');
 // Route::get('/single_product/{id?}', [WebsiteController::class, 'singleProduct'])->name('single-product');
 
-Route::view('/products', 'website/products')->name('products');
-Route::view('/products/{id}', 'website/product_details')->name('products.show');
+Route::get('/products', [WebsiteController::class, 'products'])->name('products');
+Route::get('/products/{slug}', [WebsiteController::class, 'productDetails'])->name('website.products.show');
 Route::view('/about', 'website/about')->name('about');
 Route::view('/blog', 'website/blog')->name('blog');
 

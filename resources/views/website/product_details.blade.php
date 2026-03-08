@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     @include('website.layout.style')
 
-    <title>Product Details</title>
+    <title>{{ $product->name }} - Product Details</title>
     <link rel="icon" type="image/png" href="{{ asset("website/assets/img/favicon.png") }}">
 </head>
 
@@ -16,9 +16,9 @@
     <div class="page-title-area">
         <div class="container">
             <div class="page-title-content">
-                <h2>Long Sleeve Leopard T-Shirt</h2>
+                <h2>{{ $product->name }}</h2>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{{ route('index') }}">Home</a></li>
                     <li>Products Details</li>
                 </ul>
             </div>
@@ -31,20 +31,16 @@
                 <div class="col-lg-5 col-md-12">
                     <div class="products-details-image">
                         <ul class="products-details-image-slides">
-                            <li><img src="{{ asset('website/assets/img/products/img1.jpg') }}" alt="image"></li>
-                            <li><img src="{{ asset('website/assets/img/products/img2.jpg') }}" alt="image"></li>
-                            <li><img src="{{ asset('website/assets/img/products/img5.jpg') }}" alt="image"></li>
-                            <li><img src="{{ asset('website/assets/img/products/img6.jpg') }}" alt="image"></li>
-                            <li><img src="{{ asset('website/assets/img/products/img8.jpg') }}" alt="image"></li>
+                            @foreach ($productImages as $image)
+                                <li><img src="{{ asset($image) }}" alt="{{ $product->name }}"></li>
+                            @endforeach
                         </ul>
 
                         <div class="slick-thumbs">
                             <ul>
-                                <li><img src="{{ asset('website/assets/img/products/img1.jpg') }}" alt="image"></li>
-                                <li><img src="{{ asset('website/assets/img/products/img2.jpg"') }}" alt="image"></li>
-                                <li><img src="{{ asset('website/assets/img/products/img5.jpg"') }}" alt="image"></li>
-                                <li><img src="{{ asset('website/assets/img/products/img6.jpg"') }}" alt="image"></li>
-                                <li><img src="{{ asset('website/assets/img/products/img8.jpg"') }}" alt="image"></li>
+                                @foreach ($productImages as $image)
+                                    <li><img src="{{ asset($image) }}" alt="{{ $product->name }}"></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -52,11 +48,13 @@
 
                 <div class="col-lg-7 col-md-12">
                     <div class="products-details-desc">
-                        <h3>Long Sleeve Leopard T-Shirt</h3>
+                        <h3>{{ $product->name }}</h3>
 
                         <div class="price">
-                            <span class="new-price">$250.00</span>
-                            <span class="old-price">$321.00</span>
+                            <span class="new-price">${{ number_format($product->price, 2) }}</span>
+                            @if ($product->cost_price)
+                                <span class="old-price">${{ number_format($product->cost_price, 2) }}</span>
+                            @endif
                         </div>
 
                         <div class="products-review">
@@ -67,13 +65,13 @@
                                 <i class='bx bx-star'></i>
                                 <i class='bx bx-star'></i>
                             </div>
-                            <a href="#" class="rating-count">3 reviews</a>
+                            <a href="#" class="rating-count">{{ number_format($product->rating, 1) }}/5 rating</a>
                         </div>
 
                         <ul class="products-info">
-                            <li><span>Vendor:</span> <a href="#">Lereve</a></li>
-                            <li><span>Availability:</span> <a href="#">In stock (7 items)</a></li>
-                            <li><span>Products Type:</span> <a href="#">T-Shirt</a></li>
+                            <li><span>SKU:</span> <a href="#">{{ $product->sku }}</a></li>
+                            <li><span>Availability:</span> <a href="#">In stock ({{ $product->stock_quantity }} items)</a></li>
+                            <li><span>Products Type:</span> <a href="#">{{ ucfirst($product->category) }}</a></li>
                         </ul>
 
                         <div class="products-color-switch">
@@ -151,9 +149,7 @@
                                     </a>
 
                                     <div class="accordion-content show">
-                                        <p>Design inspiration lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                            Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id
-                                            pulvinar odio lorem non turpis. Nullam sit amet enim.</p>
+                                        <p>{{ $product->description }}</p>
 
                                         <ul>
                                             <li>Fabric 1: 100% Polyester</li>
@@ -173,36 +169,28 @@
                                         <table class="table table-striped">
                                             <tbody>
                                                 <tr>
-                                                    <td>Color:</td>
-                                                    <td>Blue, Purple, White</td>
+                                                    <td>Category:</td>
+                                                    <td>{{ ucfirst($product->category) }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Size:</td>
-                                                    <td>20, 24</td>
+                                                    <td>SKU:</td>
+                                                    <td>{{ $product->sku }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Material:</td>
-                                                    <td>100% Polyester</td>
+                                                    <td>Stock:</td>
+                                                    <td>{{ $product->stock_quantity }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Height:</td>
-                                                    <td>180 cm - 5' 11”</td>
+                                                    <td>Status:</td>
+                                                    <td>{{ $product->status }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Bust:</td>
-                                                    <td>83 cm - 32”</td>
+                                                    <td>Price:</td>
+                                                    <td>${{ number_format($product->price, 2) }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Waist:</td>
-                                                    <td>57 cm - 22”</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Hips:</td>
-                                                    <td>88 cm - 35</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Shipping:</td>
-                                                    <td>Free</td>
+                                                    <td>Short Description:</td>
+                                                    <td>{{ $product->short_description ?: 'N/A' }}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -330,185 +318,76 @@
             </div>
         </div>
 
-        <div class="related-products">
-            <div class="container">
-                <div class="section-title">
-                    <span class="sub-title">Our Shop</span>
-                    <h2>Related Products</h2>
-                </div>
-
-                <div class="products-slides owl-carousel owl-theme">
-                    <div class="single-products-box">
-                        <div class="products-image">
-                            <a href="#">
-                                <img src="{{ asset('website/assets/img/products/img1.jpg"') }}" class="main-image"
-                                    alt="image">
-                                <img src="{{ asset('website/assets/img/products/img-hover1.jpg') }}" class="hover-image"
-                                    alt="image">
-                            </a>
-
-                            <div class="products-button">
-                                <ul>
-                                    <li>
-                                        <div class="wishlist-btn">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#shoppingWishlistModal">
-                                                <i class='bx bx-heart'></i>
-                                                <span class="tooltip-label">Add to Wishlist</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="compare-btn">
-                                            <a href="compare.html">
-                                                <i class='bx bx-refresh'></i>
-                                                <span class="tooltip-label">Compare</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="quick-view-btn">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                                                <i class='bx bx-search-alt'></i>
-                                                <span class="tooltip-label">Quick View</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="products-content">
-                            <h3><a href="#">Long Sleeve Leopard T-Shirt</a></h3>
-                            <div class="price">
-                                <span class="old-price">$321</span>
-                                <span class="new-price">$250</span>
-                            </div>
-                            <div class="star-rating">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                            </div>
-                            <a href="cart.html" class="add-to-cart">Add to Cart</a>
-                        </div>
+        @if ($relatedProducts->isNotEmpty())
+            <div class="related-products">
+                <div class="container">
+                    <div class="section-title">
+                        <span class="sub-title">Our Shop</span>
+                        <h2>Related Products</h2>
                     </div>
 
-                    <div class="single-products-box">
-                        <div class="products-image">
-                            <a href="#">
-                                <img src="{{ asset('website/assets/img/products/img2.jpg"') }}" class="main-image"
-                                    alt="image">
-                                <img src="{{ asset('website/assets/img/products/img-hover2.jpg') }}" class="hover-image"
-                                    alt="image">
-                            </a>
+                    <div class="products-slides owl-carousel owl-theme">
+                        @foreach ($relatedProducts as $relatedProduct)
+                            <div class="single-products-box">
+                                <div class="products-image">
+                                    <a href="{{ route('website.products.show', $relatedProduct->slug) }}">
+                                        <img src="{{ asset($relatedProduct->image) }}" class="main-image" alt="{{ $relatedProduct->name }}">
+                                        <img src="{{ asset($relatedProduct->image_1 ?: $relatedProduct->image) }}" class="hover-image" alt="{{ $relatedProduct->name }}">
+                                    </a>
 
-                            <div class="products-button">
-                                <ul>
-                                    <li>
-                                        <div class="wishlist-btn">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#shoppingWishlistModal">
-                                                <i class='bx bx-heart'></i>
-                                                <span class="tooltip-label">Add to Wishlist</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="compare-btn">
-                                            <a href="compare.html">
-                                                <i class='bx bx-refresh'></i>
-                                                <span class="tooltip-label">Compare</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="quick-view-btn">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                                                <i class='bx bx-search-alt'></i>
-                                                <span class="tooltip-label">Quick View</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                                    <div class="products-button">
+                                        <ul>
+                                            <li>
+                                                <div class="wishlist-btn">
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#shoppingWishlistModal">
+                                                        <i class='bx bx-heart'></i>
+                                                        <span class="tooltip-label">Add to Wishlist</span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="compare-btn">
+                                                    <a href="#">
+                                                        <i class='bx bx-refresh'></i>
+                                                        <span class="tooltip-label">Compare</span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="quick-view-btn">
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
+                                                        <i class='bx bx-search-alt'></i>
+                                                        <span class="tooltip-label">Quick View</span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
 
-                            <div class="sale-tag">Sale!</div>
-                        </div>
-
-                        <div class="products-content">
-                            <h3><a href="#">Causal V-Neck Soft Raglan</a></h3>
-                            <div class="price">
-                                <span class="old-price">$210</span>
-                                <span class="new-price">$200</span>
+                                <div class="products-content">
+                                    <h3><a href="{{ route('website.products.show', $relatedProduct->slug) }}">{{ $relatedProduct->name }}</a></h3>
+                                    <div class="price">
+                                        @if ($relatedProduct->cost_price)
+                                            <span class="old-price">${{ number_format($relatedProduct->cost_price, 2) }}</span>
+                                        @endif
+                                        <span class="new-price">${{ number_format($relatedProduct->price, 2) }}</span>
+                                    </div>
+                                    <div class="star-rating">
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                    </div>
+                                    <a href="#" class="add-to-cart">Add to Cart</a>
+                                </div>
                             </div>
-                            <div class="star-rating">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                            </div>
-                            <a href="cart.html" class="add-to-cart">Add to Cart</a>
-                        </div>
-                    </div>
-
-                    <div class="single-products-box">
-                        <div class="products-image">
-                            <a href="#">
-                                <img src="{{ asset('website/assets/img/products/img3.jpg"') }}" class="main-image"
-                                    alt="image">
-                                <img src="{{ asset('website/assets/img/products/img-hover3.jpg') }}" class="hover-image"
-                                    alt="image">
-                            </a>
-
-                            <div class="products-button">
-                                <ul>
-                                    <li>
-                                        <div class="wishlist-btn">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#shoppingWishlistModal">
-                                                <i class='bx bx-heart'></i>
-                                                <span class="tooltip-label">Add to Wishlist</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="compare-btn">
-                                            <a href="compare.html">
-                                                <i class='bx bx-refresh'></i>
-                                                <span class="tooltip-label">Compare</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="quick-view-btn">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                                                <i class='bx bx-search-alt'></i>
-                                                <span class="tooltip-label">Quick View</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="products-content">
-                            <h3><a href="#">Hanes Men's Pullover</a></h3>
-                            <div class="price">
-                                <span class="old-price">$210</span>
-                                <span class="new-price">$200</span>
-                            </div>
-                            <div class="star-rating">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                            </div>
-                            <a href="cart.html" class="add-to-cart">Add to Cart</a>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
+        @endif
     </section>
 
     <section class="facility-area pb-70">

@@ -9,43 +9,43 @@ class WebsiteController extends Controller
     public function index()
     {
         $products = Product::where('status', 'Active')->orderByDesc('id')->get();
+        $maleProducts = $products->where('category', 'male')->values();
+        $femaleProducts = $products->where('category', 'female')->values();
 
         return view('website.index', [
-            'productsByCategory' => [
-                'male' => $products->where('category', 'male')->values(),
-                'female' => $products->where('category', 'female')->values(),
-                'kids' => $products->where('category', 'kids')->values(),
-            ],
-            'featuredProductId' => optional($products->first())->id,
+            'recentProducts' => $products->take(6),
+            'popularProducts' => ($femaleProducts->isNotEmpty() ? $femaleProducts : $products)->take(6),
+            'bestSellingProducts' => ($maleProducts->isNotEmpty() ? $maleProducts : $products)->take(6),
         ]);
     }
 
     public function products()
     {
-        $products = Product::where('status', 'Active')->orderByDesc('id')->get();
-
         return view('website.products', [
-            'products' => $products,
-            'featuredProductId' => optional($products->first())->id,
+            'products' => Product::where('status', 'Active')->orderByDesc('id')->get(),
         ]);
     }
 
-    public function singleProduct($id = null)
+    public function productDetails($slug)
     {
-        if (!$id) {
-            return redirect()->route('products');
-        }
+        $product = Product::where('status', 'Active')
+            ->where('slug', $slug)
+            ->firstOrFail();
+        $productImages = collect([
+            $product->image,
+            $product->image_1,
+            $product->image_2,
+            $product->image_3,
+        ])->filter()->values();
 
-        $product = Product::where('status', 'Active')->findOrFail($id);
-
-        return view('website.single-product', [
+        return view('website.product_details', [
             'product' => $product,
-            'featuredProductId' => $product->id,
+            'productImages' => $productImages,
             'relatedProducts' => Product::where('status', 'Active')
                 ->where('category', $product->category)
                 ->where('id', '!=', $product->id)
                 ->orderByDesc('id')
-                ->limit(4)
+                ->limit(8)
                 ->get(),
         ]);
     }

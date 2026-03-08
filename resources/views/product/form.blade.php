@@ -53,6 +53,7 @@
                                     <input type="text" class="form-control @error('slug') is-invalid @enderror"
                                         id="slug" name="slug" placeholder="Enter product slug"
                                         value="{{ old('slug', isset($product) ? $product->slug : '') }}">
+                                    <small class="text-muted">Example: <code>yidarton-womens-comfy</code></small>
                                     @error('slug')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -280,3 +281,34 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        (function() {
+            const nameInput = document.getElementById('name');
+            const slugInput = document.getElementById('slug');
+
+            if (!nameInput || !slugInput) return;
+
+            const slugify = (value) => value
+                .toString()
+                .toLowerCase()
+                .trim()
+                .replace(/[^a-z0-9\s-]/g, '')
+                .replace(/\s+/g, '-')
+                .replace(/-+/g, '-')
+                .replace(/^-+|-+$/g, '');
+
+            nameInput.addEventListener('input', function() {
+                if (!slugInput.dataset.edited) {
+                    slugInput.value = slugify(nameInput.value);
+                }
+            });
+
+            slugInput.addEventListener('input', function() {
+                slugInput.dataset.edited = 'true';
+                slugInput.value = slugify(slugInput.value);
+            });
+        })();
+    </script>
+@endpush

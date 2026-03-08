@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class ProductController extends Controller
@@ -39,6 +40,11 @@ class ProductController extends Controller
             ? Product::findOrFail($id)
             : new Product();
 
+        // Normalize slug input (spaces/special chars -> hyphens) before validation.
+        $request->merge([
+            'slug' => Str::slug($request->input('slug', $request->input('name', ''))),
+        ]);
+
         // Build validation rules dynamically
         // Main image is required for new products, nullable for updates
         $imageRule = $id ? 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048' : 'required|image|mimes:jpeg,png,jpg,gif|max:2048';
@@ -62,7 +68,7 @@ class ProductController extends Controller
                     'required',
                     'min:3',
                     'max:255',
-                    'regex:/^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)*$/i',
+                    'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/',
                     Rule::unique('products', 'slug')->ignore($id, 'id'),
                 ],
                 'category' => 'required|in:male,female,kids',
