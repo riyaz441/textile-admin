@@ -8,7 +8,7 @@
                     <div class="about-the-store">
                         <p>One of the most popular on the web is shopping.</p>
                         <ul class="footer-contact-info">
-                            <li><i class='bx bx-map'></i> <a href="#" target="_blank">MGR NAGAR,T.SUBBULAPURAM,625536</a></li>
+                            <li><i class='bx bx-map'></i> <a href="#" target="_blank">MGR NAGAR, T.SUBBULAPURAM, Theni, Tamilnadu - 625536</a></li>
                             <li><i class='bx bx-phone-call'></i> <a href="tel:+919047011032">+91 9047011032</a></li>
                             <li><i class='bx bx-envelope'></i> <a href="mailto:trttex@gmail.com">trttex@gmail.com</a></li>
                             <li><i class='bx bx-envelope'></i> <a href="mailto:ramthiruvenkatraj@gmail.com" >ramthiruvenkatraj@gmail.com</a></li>
