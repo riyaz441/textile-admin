@@ -154,7 +154,7 @@
                                     class='bx bx-crop'></i> Size guide</a>
                             <a href="#" data-bs-toggle="modal" data-bs-target="#productsShippingModal"><i
                                     class='bx bxs-truck'></i> Shipping</a>
-                            <a href="{{ route('contact') }}"><i class='bx bx-envelope'></i> Ask about this products</a>
+                            <a href="#"><i class='bx bx-envelope'></i> Ask about this products</a>
                         </div>
 
                         <div class="products-add-to-cart">
