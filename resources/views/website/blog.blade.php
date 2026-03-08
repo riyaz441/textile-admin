@@ -39,7 +39,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog-post">
                         <div class="post-image">
-                            <a href="#">
+                            <a href="{{ route('blog.details') }}">
                                 <img src="{{ asset('website/assets/img/blog/img1.jpg') }}" alt="image">
                             </a>
                             <div class="date">
@@ -49,8 +49,8 @@
 
                         <div class="post-content">
                             <span class="category">Ideas</span>
-                            <h3><a href="#">The #1 eCommerce blog to grow your business</a></h3>
-                            <a href="#" class="details-btn">Read Story</a>
+                            <h3><a href="{{ route('blog.details') }}">The #1 eCommerce blog to grow your business</a></h3>
+                            <a href="{{ route('blog.details') }}" class="details-btn">Read Story</a>
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog-post">
                         <div class="post-image">
-                            <a href="#">
+                            <a href="{{ route('blog.details') }}">
                                 <img src="{{ asset('website/assets/img/blog/img2.jpg') }}" alt="image">
                             </a>
                             <div class="date">
@@ -68,8 +68,8 @@
 
                         <div class="post-content">
                             <span class="category">Advice</span>
-                            <h3><a href="#">Latest ecommerce trend: The rise of shoppable posts</a></h3>
-                            <a href="#" class="details-btn">Read Story</a>
+                            <h3><a href="{{ route('blog.details') }}">Latest ecommerce trend: The rise of shoppable posts</a></h3>
+                            <a href="{{ route('blog.details') }}" class="details-btn">Read Story</a>
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog-post">
                         <div class="post-image">
-                            <a href="#">
+                            <a href="{{ route('blog.details') }}">
                                 <img src="{{ asset('website/assets/img/blog/img3.jpg') }}" alt="image">
                             </a>
                             <div class="date">
@@ -87,8 +87,8 @@
 
                         <div class="post-content">
                             <span class="category">Social</span>
-                            <h3><a href="#">Building eCommerce wave: Social media shopping</a></h3>
-                            <a href="#" class="details-btn">Read Story</a>
+                            <h3><a href="{{ route('blog.details') }}">Building eCommerce wave: Social media shopping</a></h3>
+                            <a href="{{ route('blog.details') }}" class="details-btn">Read Story</a>
                         </div>
                     </div>
                 </div>

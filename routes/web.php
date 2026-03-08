@@ -28,6 +28,7 @@ Route::get('/products', [WebsiteController::class, 'products'])->name('products'
 Route::get('/products/{slug}', [WebsiteController::class, 'productDetails'])->name('website.products.show');
 Route::view('/about', 'website/about')->name('about');
 Route::view('/blog', 'website/blog')->name('blog');
+Route::view('/blog/details', 'website/single-blog-details')->name('blog.details');
 
 /* ---------------- Login Routes ---------------- */
 Route::view('/login', 'auth_login')->name('login');

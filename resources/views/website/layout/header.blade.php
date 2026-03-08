@@ -122,7 +122,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('blog') }}" class="nav-link {{ request()->routeIs('blog') ? 'active' : '' }}">Blog</a>
+                            <a href="{{ route('blog') }}" class="nav-link {{ request()->routeIs('blog', 'blog.details') ? 'active' : '' }}">Blog</a>
                         </li>
                     </ul>
 
