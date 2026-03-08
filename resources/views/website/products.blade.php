@@ -109,6 +109,12 @@
                 </div>
             </div>
         </section>
+    @else
+        <div class="container my-5">
+            <div class="alert alert-info text-center" role="alert">
+                No products available in this category at the moment. Please check back later.
+            </div>
+        </div>
     @endif
 
     <section class="facility-area pb-70">

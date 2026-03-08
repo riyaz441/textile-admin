@@ -272,6 +272,12 @@
             </div>
         </section>
         <!-- End Products Area -->
+    @else
+        <div class="container my-5">
+            <div class="alert alert-info text-center" role="alert">
+                No recent products available at the moment. Please check back later.
+            </div>
+        </div>
     @endif
 
     <!-- Start Offer Area -->
@@ -385,6 +391,12 @@
             </div>
         </section>
         <!-- End Products Area -->
+    @else
+        <div class="container my-5">
+            <div class="alert alert-info text-center" role="alert">
+                No popular products available at the moment. Please check back later.
+            </div>
+        </div>
     @endif
 
     <!-- Start Facility Area -->
@@ -538,6 +550,12 @@
             </div>
         </section>
         <!-- End Products Area -->
+    @else
+        <div class="container my-5">
+            <div class="alert alert-info text-center" role="alert">
+                No best selling products available at the moment. Please check back later.
+            </div>
+        </div>
     @endif
 
     <!-- Start Brand Area -->
