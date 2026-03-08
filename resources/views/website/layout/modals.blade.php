@@ -85,17 +85,17 @@
                 <div class="row align-items-center justify-content-center">
                     <div class="col-lg-6 col-md-6">
                         <div class="products-image">
-                            <img src="{{ asset('website/assets/img/quick-view-img.jpg') }}" alt="image">
+                            <img id="quickViewImage" src="{{ asset('website/assets/img/quick-view-img.jpg') }}" alt="image">
                         </div>
                     </div>
 
                     <div class="col-lg-6 col-md-6">
                         <div class="products-content">
-                            <h3><a href="#">Long Sleeve Leopard T-Shirt</a></h3>
+                            <h3><a id="quickViewTitle" href="#">Long Sleeve Leopard T-Shirt</a></h3>
 
                             <div class="price">
-                                <span class="old-price">$210.00</span>
-                                <span class="new-price">$200.00</span>
+                                <span id="quickViewOldPrice" class="old-price">$210.00</span>
+                                <span id="quickViewPrice" class="new-price">$200.00</span>
                             </div>
 
                             <div class="products-review">
@@ -110,9 +110,9 @@
                             </div>
 
                             <ul class="products-info">
-                                <li><span>Vendor:</span> <a href="#">Lereve</a></li>
-                                <li><span>Availability:</span> <a href="#">In stock (7 items)</a></li>
-                                <li><span>Products Type:</span> <a href="#">T-Shirt</a></li>
+                                <li><span>SKU:</span> <a id="quickViewSku" href="#">-</a></li>
+                                <li><span>Availability:</span> <a id="quickViewStock" href="#">In stock (0 items)</a></li>
+                                <li><span>Products Type:</span> <a id="quickViewCategory" href="#">-</a></li>
                             </ul>
 
                             <div class="products-color-switch">
@@ -154,13 +154,54 @@
                                 <button type="submit" class="default-btn">Add to Cart</button>
                             </div>
 
-                            <a href="#" class="view-full-info">View Full Info</a>
+                            <a id="quickViewLink" href="#" class="view-full-info">View Full Info</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var quickViewModal = document.getElementById('productsQuickView');
+            if (!quickViewModal) return;
+
+            quickViewModal.addEventListener('show.bs.modal', function(event) {
+                var trigger = event.relatedTarget;
+                if (!trigger) return;
+
+                var data = trigger.dataset;
+                var image = quickViewModal.querySelector('#quickViewImage');
+                var title = quickViewModal.querySelector('#quickViewTitle');
+                var price = quickViewModal.querySelector('#quickViewPrice');
+                var oldPrice = quickViewModal.querySelector('#quickViewOldPrice');
+                var sku = quickViewModal.querySelector('#quickViewSku');
+                var stock = quickViewModal.querySelector('#quickViewStock');
+                var category = quickViewModal.querySelector('#quickViewCategory');
+                var link = quickViewModal.querySelector('#quickViewLink');
+
+                if (image && data.productImage) image.src = data.productImage;
+                if (image && data.productName) image.alt = data.productName;
+                if (title && data.productName) title.textContent = data.productName;
+                if (title && data.productUrl) title.href = data.productUrl;
+                if (price && data.productPrice) price.textContent = '$' + data.productPrice;
+
+                if (oldPrice) {
+                    if (data.productOldPrice) {
+                        oldPrice.textContent = '$' + data.productOldPrice;
+                        oldPrice.style.display = '';
+                    } else {
+                        oldPrice.style.display = 'none';
+                    }
+                }
+
+                if (sku) sku.textContent = data.productSku || '-';
+                if (stock) stock.textContent = 'In stock (' + (data.productStock || 0) + ' items)';
+                if (category) category.textContent = data.productCategory || '-';
+                if (link && data.productUrl) link.href = data.productUrl;
+            });
+        });
+    </script>
     <!-- End QuickView Modal Area -->
 
     <!-- Start Shopping Cart Modal -->

@@ -195,7 +195,7 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label class="form-label" for="image_1">Image 1</label>
+                                    <label class="form-label" for="image_1">Hover Image </label>
                                     <input type="file" class="form-control @error('image_1') is-invalid @enderror"
                                         id="image_1" name="image_1" accept="image/*">
                                     @if (isset($product) && $product->image_1)

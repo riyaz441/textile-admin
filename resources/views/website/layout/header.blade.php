@@ -101,15 +101,20 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('products') }}" class="nav-link {{ request()->routeIs('products', 'website.products.show') ? 'active' : '' }}">Product</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('products') }}" class="nav-link {{ request()->routeIs('products', 'website.products.show') ? 'active' : '' }}">Men</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('products') }}" class="nav-link {{ request()->routeIs('products', 'website.products.show') ? 'active' : '' }}">Women</a>
+                            <a href="{{ route('products') }}" class="nav-link {{ request()->routeIs('products', 'website.products.show') ? 'active' : '' }}">
+                                Product <i class='bx bx-chevron-down'></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a href="{{ route('products', ['category' => 'male']) }}" class="nav-link {{ request()->routeIs('products') && request('category') === 'male' ? 'active' : '' }}">Men</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('products', ['category' => 'female']) }}" class="nav-link {{ request()->routeIs('products') && request('category') === 'female' ? 'active' : '' }}">Women</a>
+                                </li>
+                                {{-- <li class="nav-item">
+                                    <a href="{{ route('products', ['category' => 'kids']) }}" class="nav-link {{ request()->routeIs('products') && request('category') === 'kids' ? 'active' : '' }}">Kids</a>
+                                </li> --}}
+                            </ul>
                         </li>
 
                         <li class="nav-item">

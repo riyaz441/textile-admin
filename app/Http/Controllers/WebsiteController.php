@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
 {
@@ -19,10 +20,22 @@ class WebsiteController extends Controller
         ]);
     }
 
-    public function products()
+    public function products(Request $request)
     {
+        $allowedCategories = ['male', 'female', 'kids'];
+        $selectedCategory = $request->query('category');
+
+        $productsQuery = Product::where('status', 'Active')->orderByDesc('id');
+
+        if (in_array($selectedCategory, $allowedCategories, true)) {
+            $productsQuery->where('category', $selectedCategory);
+        } else {
+            $selectedCategory = null;
+        }
+
         return view('website.products', [
-            'products' => Product::where('status', 'Active')->orderByDesc('id')->get(),
+            'products' => $productsQuery->get(),
+            'selectedCategory' => $selectedCategory,
         ]);
     }
 

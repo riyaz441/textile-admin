@@ -20,10 +20,12 @@
     <div class="page-title-area">
         <div class="container">
             <div class="page-title-content">
-                <h2>Products</h2>
+                <h2>
+                    {{ $selectedCategory ? ucfirst($selectedCategory) . " Products" : 'Products' }}
+                </h2>
                 <ul>
                     <li><a href="{{ route('index') }}">Home</a></li>
-                    <li>Products</li>
+                    <li>{{ $selectedCategory ? ucfirst($selectedCategory) . " Products" : 'Products' }}</li>
                 </ul>
             </div>
         </div>

@@ -217,7 +217,17 @@
                                             </li>
                                             <li>
                                                 <div class="quick-view-btn">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
+                                                    <a href="#"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#productsQuickView"
+                                                        data-product-name="{{ $product->name }}"
+                                                        data-product-category="{{ ucfirst($product->category) }}"
+                                                        data-product-price="{{ number_format($product->price, 2) }}"
+                                                        data-product-old-price="{{ ($product->discount_percentage > 0 && $product->cost_price) ? number_format($product->cost_price, 2) : '' }}"
+                                                        data-product-image="{{ asset($product->image) }}"
+                                                        data-product-url="{{ route('website.products.show', $product->slug) }}"
+                                                        data-product-stock="{{ $product->stock_quantity }}"
+                                                        data-product-sku="{{ $product->sku }}">
                                                         <i class='bx bx-search-alt'></i>
                                                         <span class="tooltip-label">Quick View</span>
                                                     </a>
@@ -320,7 +330,17 @@
                                             </li>
                                             <li>
                                                 <div class="quick-view-btn">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
+                                                    <a href="#"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#productsQuickView"
+                                                        data-product-name="{{ $product->name }}"
+                                                        data-product-category="{{ ucfirst($product->category) }}"
+                                                        data-product-price="{{ number_format($product->price, 2) }}"
+                                                        data-product-old-price="{{ ($product->discount_percentage > 0 && $product->cost_price) ? number_format($product->cost_price, 2) : '' }}"
+                                                        data-product-image="{{ asset($product->image) }}"
+                                                        data-product-url="{{ route('website.products.show', $product->slug) }}"
+                                                        data-product-stock="{{ $product->stock_quantity }}"
+                                                        data-product-sku="{{ $product->sku }}">
                                                         <i class='bx bx-search-alt'></i>
                                                         <span class="tooltip-label">Quick View</span>
                                                     </a>
@@ -463,7 +483,17 @@
                                             </li>
                                             <li>
                                                 <div class="quick-view-btn">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
+                                                    <a href="#"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#productsQuickView"
+                                                        data-product-name="{{ $product->name }}"
+                                                        data-product-category="{{ ucfirst($product->category) }}"
+                                                        data-product-price="{{ number_format($product->price, 2) }}"
+                                                        data-product-old-price="{{ ($product->discount_percentage > 0 && $product->cost_price) ? number_format($product->cost_price, 2) : '' }}"
+                                                        data-product-image="{{ asset($product->image) }}"
+                                                        data-product-url="{{ route('website.products.show', $product->slug) }}"
+                                                        data-product-stock="{{ $product->stock_quantity }}"
+                                                        data-product-sku="{{ $product->sku }}">
                                                         <i class='bx bx-search-alt'></i>
                                                         <span class="tooltip-label">Quick View</span>
                                                     </a>
@@ -519,27 +549,27 @@
 
             <div class="brand-slides owl-carousel owl-theme">
                 <div class="brand-item">
-                    <a href="#"><img src="{{ asset('website/assets/img/brand/img1.png') }}" alt="image"></a>
+                    <a href="#"><img src="{{ asset('website/assets/img/brand/tussarsaree.jpg') }}" alt="image">Tussar Saree</a>
                 </div>
 
                 <div class="brand-item">
-                    <a href="#"><img src="{{ asset('website/assets/img/brand/img2.png') }}" alt="image"></a>
+                    <a href="#"><img src="{{ asset('website/assets/img/brand/tussarsaree.jpg') }}" alt="image">Linen Saree</a>
                 </div>
 
                 <div class="brand-item">
-                    <a href="#"><img src="{{ asset('website/assets/img/brand/img3.png') }}" alt="image"></a>
+                    <a href="#"><img src="{{ asset('website/assets/img/brand/tussarsaree.jpg') }}" alt="image">Cotton Silk Saree</a>
                 </div>
 
                 <div class="brand-item">
-                    <a href="#"><img src="{{ asset('website/assets/img/brand/img4.png') }}" alt="image"></a>
+                    <a href="#"><img src="{{ asset('website/assets/img/brand/tussarsaree.jpg') }}" alt="image">Matka Silk</a>
                 </div>
 
                 <div class="brand-item">
-                    <a href="#"><img src="{{ asset('website/assets/img/brand/img5.png') }}" alt="image"></a>
+                    <a href="#"><img src="{{ asset('website/assets/img/brand/tussarsaree.jpg') }}" alt="image">Chenderi Saree</a>
                 </div>
 
                 <div class="brand-item">
-                    <a href="#"><img src="{{ asset('website/assets/img/brand/img6.png') }}" alt="image"></a>
+                    <a href="#"><img src="{{ asset('website/assets/img/brand/tussarsaree.jpg') }}" alt="image">Khadi Silk</a>
                 </div>
             </div>
         </div>
