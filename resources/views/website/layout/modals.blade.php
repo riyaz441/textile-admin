@@ -16,7 +16,7 @@
                         <ul class="sidebar-contact-info">
                             <li><i class='bx bx-map'></i> <a href="#" target="_blank">MGR NAGAR, T.SUBBULAPURAM, Theni,
                                     Tamilnadu - 625536</a></li>
-                            <li><i class='bx bx-phone-call'></i> <a href="tel:+01321654214">+91 9047011032</a>
+                            <li><i class='bx bx-phone-call'></i> <a href="tel:+919047011032">+91 9047011032</a>
                             </li>
                             <li><i class='bx bx-envelope'></i> <a href="mailto:trttex@gmail.com">trttex@gmail.com</a>
                             </li>
@@ -26,15 +26,15 @@
                     </div>
 
                     <ul class="social-link">
-                        <li><a href="https://www.facebook.com/" class="d-block" target="_blank"><i
+                        <li><a href="#" class="d-block" target="_blank"><i
                                     class='bx bxl-facebook'></i></a></li>
-                        <li><a href="https://twitter.com/login" class="d-block" target="_blank"><i
+                        <li><a href="#" class="d-block" target="_blank"><i
                                     class='bx bxl-twitter'></i></a></li>
-                        <li><a href="https://www.instagram.com/" class="d-block" target="_blank"><i
+                        <li><a href="#" class="d-block" target="_blank"><i
                                     class='bx bxl-instagram'></i></a></li>
-                        <li><a href="https://www.linkedin.com/login" class="d-block" target="_blank"><i
+                        <li><a href="#" class="d-block" target="_blank"><i
                                     class='bx bxl-linkedin'></i></a></li>
-                        <li><a href="https://www.pinterest.com/" class="d-block" target="_blank"><i
+                        <li><a href="#" class="d-block" target="_blank"><i
                                     class='bx bxl-pinterest-alt'></i></a></li>
                     </ul>
                 </div>
@@ -44,29 +44,29 @@
 
                     <ul class="products-list">
                         <li>
-                            <a href="products-one-row-2.html"><img
+                            <a href="#"><img
                                     src="{{ asset('website/assets/img/products/img1.jpg') }}" alt="image"></a>
                         </li>
 
                         <li>
-                            <a href="products-one-row-2.html"><img
+                            <a href="#"><img
                                     src="{{ asset('website/assets/img/products/img2.jpg') }}" alt="image"></a>
                         </li>
 
                         <li>
-                            <a href="products-one-row-2.html"><img
+                            <a href="#"><img
                                     src="{{ asset('website/assets/img/products/img3.jpg') }}" alt="image"></a>
                         </li>
 
                         <li>
-                            <a href="products-one-row-2.html"><img
+                            <a href="#"><img
                                     src="{{ asset('website/assets/img/products/img4.jpg') }}" alt="image"></a>
                         </li>
                     </ul>
 
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna aliqua.</p>
-                    <a href="products-left-sidebar-with-categories-3.html" class="shop-now-btn">Shop Now</a>
+                    <a href="#" class="shop-now-btn">Shop Now</a>
                 </div>
             </div>
         </div>
@@ -642,7 +642,7 @@
                                 <h3>Top Trending</h3>
                                 <span>Spring/Summer 2024 Collection</span>
                             </div>
-                            <a href="products-right-sidebar.html" class="link-btn"></a>
+                            <a href="#" class="link-btn"></a>
                         </div>
                     </div>
                 </div>
