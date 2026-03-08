@@ -8,6 +8,45 @@
 
     <title>{{ $product->name }} - Product Details</title>
     <link rel="icon" type="image/png" href="{{ asset("website/assets/img/favicon.png") }}">
+    
+    <style>
+        .carousel-inner {
+            background-color: #f8f9fa;
+            border-radius: 0.25rem;
+            overflow: hidden;
+        }
+
+        .carousel-inner img {
+            height: 500px;
+            width: 100%;
+            object-fit: scale-down;
+        }
+
+        .product-thumbnails {
+            margin-top: 1rem;
+        }
+
+        .thumbnail-img {
+            width: 100%;
+            height: auto;
+            border: 2px solid transparent;
+            border-radius: 0.25rem;
+            transition: all 0.3s ease;
+            object-fit: cover;
+            background-color: #f8f9fa;
+            padding: 4px;
+            box-sizing: border-box;
+        }
+
+        .thumbnail-img:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+        .thumbnail-img.active {
+            border: 2px solid #333;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,18 +69,30 @@
             <div class="row justify-content-center">
                 <div class="col-lg-5 col-md-12">
                     <div class="products-details-image">
-                        <ul class="products-details-image-slides">
-                            @foreach ($productImages as $image)
-                                <li><img src="{{ asset($image) }}" alt="{{ $product->name }}"></li>
-                            @endforeach
-                        </ul>
-
-                        <div class="slick-thumbs">
-                            <ul>
-                                @foreach ($productImages as $image)
-                                    <li><img src="{{ asset($image) }}" alt="{{ $product->name }}"></li>
+                        <!-- Main Carousel -->
+                        <div id="productCarousel" class="carousel slide mb-3" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                @foreach ($productImages as $index => $image)
+                                    <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                        <img src="{{ asset($image) }}" class="d-block w-100" alt="{{ $product->name }}">
+                                    </div>
                                 @endforeach
-                            </ul>
+                            </div>
+                        </div>
+
+                        <!-- Thumbnail Gallery -->
+                        <div class="product-thumbnails">
+                            <div class="row g-2">
+                                @foreach ($productImages as $index => $image)
+                                    <div class="col-3">
+                                        <img src="{{ asset($image) }}" 
+                                             class="img-fluid thumbnail-img {{ $index === 0 ? 'active' : '' }}" 
+                                             alt="{{ $product->name }}"
+                                             onclick="changeMainImage(this, {{ $index }})"
+                                             style="cursor: pointer; border: 2px solid transparent; transition: border 0.3s;">
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -449,6 +500,21 @@
     <div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
 
     @include('website.layout.script')
+
+    <script>
+        function changeMainImage(thumbnail, index) {
+            // Get the carousel instance
+            const carousel = new bootstrap.Carousel(document.getElementById('productCarousel'));
+            // Go to the slide at index
+            carousel.to(index);
+            
+            // Update thumbnail styling
+            document.querySelectorAll('.thumbnail-img').forEach(img => {
+                img.style.border = '2px solid transparent';
+            });
+            thumbnail.style.border = '2px solid #333';
+        }
+    </script>
 </body>
 
 </html>
