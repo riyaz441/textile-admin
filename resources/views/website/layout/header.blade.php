@@ -3,8 +3,8 @@
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-4 col-md-12">
                 <ul class="header-contact-info">
-                    <li>Welcome to Textile</li>
-                    <li>Call: <a href="tel:+01321654214">+01 321 654 214</a></li>
+                    <li>Welcome to TRT TEX</li>
+                    <li>Call: <a href="tel:+919047011032">+91 9047011032</a></li>
                     <li>
                         <div class="dropdown language-switcher d-inline-block">
                             <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true"

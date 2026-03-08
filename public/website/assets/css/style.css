@@ -8290,7 +8290,7 @@ Footer CSS
 .single-footer-widget .about-the-store .footer-contact-info li a {
   display: inline-block;
   color: #ffffff;
-  font-weight: 600;
+  /* font-weight: 600; */
   position: relative;
 }
 .single-footer-widget .about-the-store .footer-contact-info li a:hover {
