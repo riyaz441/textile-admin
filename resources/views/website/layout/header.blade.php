@@ -96,17 +96,29 @@
 
                 <div class="collapse navbar-collapse mean-menu">
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a href="{{ route('index') }}" class="nav-link active">Home</a></li>
+                        <li class="nav-item">
+                            <a href="{{ route('index') }}" class="nav-link {{ request()->routeIs('index') ? 'active' : '' }}">Home</a>
+                        </li>
 
-                        <li class="nav-item"><a href="{{ route('products') }}" class="nav-link">Product</a></li>
+                        <li class="nav-item">
+                            <a href="{{ route('products') }}" class="nav-link {{ request()->routeIs('products', 'products.show') ? 'active' : '' }}">Product</a>
+                        </li>
 
-                        <li class="nav-item"><a href="{{ route('products') }}" class="nav-link">Men</a></li>
+                        <li class="nav-item">
+                            <a href="{{ route('products') }}" class="nav-link {{ request()->routeIs('products', 'products.show') ? 'active' : '' }}">Men</a>
+                        </li>
 
-                        <li class="nav-item"><a href="{{ route('products') }}" class="nav-link">Women</a></li>
+                        <li class="nav-item">
+                            <a href="{{ route('products') }}" class="nav-link {{ request()->routeIs('products', 'products.show') ? 'active' : '' }}">Women</a>
+                        </li>
 
-                        <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About</a></li>
+                        <li class="nav-item">
+                            <a href="{{ route('about') }}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About</a>
+                        </li>
 
-                        <li class="nav-item"><a href="{{ route('blog') }}" class="nav-link">Blog</a></li>
+                        <li class="nav-item">
+                            <a href="{{ route('blog') }}" class="nav-link {{ request()->routeIs('blog') ? 'active' : '' }}">Blog</a>
+                        </li>
                     </ul>
 
                     <div class="others-option">

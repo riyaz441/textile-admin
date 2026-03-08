@@ -1,3 +1,5 @@
+    @include('website.layout.modals')
+
     <!-- Links of JS files -->
     <script src="{{ asset('website/assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('website/assets/js/popper.min.js') }}"></script>
