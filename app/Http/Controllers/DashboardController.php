@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BranchMaster;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -14,8 +14,8 @@ class DashboardController extends Controller
     {
         $data['masterCards'] = [
             [
-                'label' => 'Branches',
-                'value' => BranchMaster::count(),
+                'label' => 'Products',
+                'value' => Product::where('status', 'active')->count(),
                 'icon' => 'bx bx-store',
                 'color' => 'info',
                 'note' => 'All locations',
