@@ -57,8 +57,8 @@
                                     <p>Click here to shop in your local currency. We ship over 2 million products around
                                         the world!</p>
                                     <div class="btn-box">
-                                        <a href="products-right-sidebar-2.html" class="default-btn">Shop Women's</a>
-                                        <a href="products-right-sidebar-3.html" class="optional-btn">Shop Men's</a>
+                                        <a href="#" class="default-btn">Shop Women's</a>
+                                        <a href="#" class="optional-btn">Shop Men's</a>
                                     </div>
                                 </div>
                             </div>
@@ -81,8 +81,8 @@
                                     <p>Click here to shop in your local currency. We ship over 2 million products around
                                         the world!</p>
                                     <div class="btn-box">
-                                        <a href="products-right-sidebar-2.html" class="default-btn">Shop Women's</a>
-                                        <a href="products-right-sidebar-3.html" class="optional-btn">Shop Men's</a>
+                                        <a href="#" class="default-btn">Shop Women's</a>
+                                        <a href="#" class="optional-btn">Shop Men's</a>
                                     </div>
                                 </div>
                             </div>
@@ -105,8 +105,8 @@
                                     <p>Click here to shop in your local currency. We ship over 2 million products around
                                         the world!</p>
                                     <div class="btn-box">
-                                        <a href="products-right-sidebar-2.html" class="default-btn">Shop Women's</a>
-                                        <a href="products-right-sidebar-3.html" class="optional-btn">Shop Men's</a>
+                                        <a href="#" class="default-btn">Shop Women's</a>
+                                        <a href="#" class="optional-btn">Shop Men's</a>
                                     </div>
                                 </div>
                             </div>
@@ -130,7 +130,7 @@
                             <h3>New Collections!</h3>
                         </div>
 
-                        <a href="products-left-sidebar.html" class="link-btn"></a>
+                        <a href="#" class="link-btn"></a>
                     </div>
                 </div>
 
@@ -144,7 +144,7 @@
                                     <h3>Our Popular Products</h3>
                                 </div>
 
-                                <a href="products-left-sidebar.html" class="link-btn"></a>
+                                <a href="#" class="link-btn"></a>
                             </div>
                         </div>
 
@@ -156,7 +156,7 @@
                                     <h3>Hot Trending Products</h3>
                                 </div>
 
-                                <a href="products-left-sidebar.html" class="link-btn"></a>
+                                <a href="#" class="link-btn"></a>
                             </div>
                         </div>
 
@@ -168,7 +168,7 @@
                                     <h3>Winter Collections!</h3>
                                 </div>
 
-                                <a href="products-left-sidebar.html" class="link-btn"></a>
+                                <a href="#" class="link-btn"></a>
                             </div>
                         </div>
                     </div>
@@ -289,7 +289,7 @@
                         <span class="sub-title">Limited Time Offer!</span>
                         <h2>-40% OFF</h2>
                         <p>Get The Best Deals Now</p>
-                        <a href="products-right-sidebar.html" class="default-btn">Discover Now</a>
+                        <a href="#" class="default-btn">Discover Now</a>
                     </div>
                 </div>
             </div>

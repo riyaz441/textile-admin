@@ -8,7 +8,7 @@
 
     <title>{{ $product->name }} - Product Details</title>
     <link rel="icon" type="image/png" href="{{ asset("website/assets/img/favicon.png") }}">
-    
+
     <style>
         .carousel-inner {
             background-color: #f8f9fa;
@@ -85,8 +85,8 @@
                             <div class="row g-2">
                                 @foreach ($productImages as $index => $image)
                                     <div class="col-3">
-                                        <img src="{{ asset($image) }}" 
-                                             class="img-fluid thumbnail-img {{ $index === 0 ? 'active' : '' }}" 
+                                        <img src="{{ asset($image) }}"
+                                             class="img-fluid thumbnail-img {{ $index === 0 ? 'active' : '' }}"
                                              alt="{{ $product->name }}"
                                              onclick="changeMainImage(this, {{ $index }})"
                                              style="cursor: pointer; border: 2px solid transparent; transition: border 0.3s;">
@@ -154,7 +154,7 @@
                                     class='bx bx-crop'></i> Size guide</a>
                             <a href="#" data-bs-toggle="modal" data-bs-target="#productsShippingModal"><i
                                     class='bx bxs-truck'></i> Shipping</a>
-                            <a href="contact.html"><i class='bx bx-envelope'></i> Ask about this products</a>
+                            <a href="{{ route('contact') }}"><i class='bx bx-envelope'></i> Ask about this products</a>
                         </div>
 
                         <div class="products-add-to-cart">
@@ -507,7 +507,7 @@
             const carousel = new bootstrap.Carousel(document.getElementById('productCarousel'));
             // Go to the slide at index
             carousel.to(index);
-            
+
             // Update thumbnail styling
             document.querySelectorAll('.thumbnail-img').forEach(img => {
                 img.style.border = '2px solid transparent';
