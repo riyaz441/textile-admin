@@ -75,6 +75,18 @@
                             </div>
 
                             <div class="row mb-6">
+                                <label class="col-sm-3 col-form-label" for="adding_work">Our Services</label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" id="adding_work" name="adding_work" rows="3"
+                                        placeholder="Value 1, Value 2, Value 3">{{ old('adding_work', $setting->adding_work ?? '') }}</textarea>
+                                    <small class="text-muted">Enter comma-separated values. Maximum 6 values allowed.</small>
+                                    <span class="text-danger d-block">
+                                        {{ $errors->first('adding_work') }}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="row mb-6">
                                 <label class="col-sm-3 col-form-label" for="logo">Logo</label>
                                 <div class="col-sm-9">
                                     <input type="file" class="form-control" id="logo" name="logo" accept="image/*" />

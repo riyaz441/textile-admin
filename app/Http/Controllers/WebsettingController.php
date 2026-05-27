@@ -37,6 +37,20 @@ class WebsettingController extends Controller
                 'address' => 'required|regex:/^(?!.*<\s*script\b[^>]*>).*$/i',
                 'logo' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
                 'fav_icon' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
+                'adding_work' => [
+                    'nullable',
+                    'string',
+                    function ($attribute, $value, $fail) {
+                        $items = collect(explode(',', (string) $value))
+                            ->map(fn($item) => trim($item))
+                            ->filter(fn($item) => $item !== '')
+                            ->values();
+
+                        if ($items->count() > 6) {
+                            $fail('You can enter maximum 6 values only.');
+                        }
+                    },
+                ],
             ],
             [
                 'contact_person.regex' => 'This field is an invalid format',
@@ -51,6 +65,7 @@ class WebsettingController extends Controller
                 'fav_icon.max' => 'The field must not be greater than 1 MB',
                 'fav_icon.mimes' => 'Upload a valid favicon file (e.g., .jpg, .jpeg, .png)',
                 'fav_icon.image' => 'Upload a valid favicon file (e.g., .jpg, .jpeg, .png)',
+                'adding_work.string' => 'This field is an invalid format',
             ]
         );
 
@@ -63,6 +78,11 @@ class WebsettingController extends Controller
         $setting->contact_phone = $request->contact_phone;
         $setting->sales_email = $request->sales_email;
         $setting->address = $request->address;
+        $setting->adding_work = collect(explode(',', (string) $request->adding_work))
+            ->map(fn($item) => trim($item))
+            ->filter(fn($item) => $item !== '')
+            ->take(6)
+            ->implode(', ');
 
         if ($request->hasFile('logo')) {
             if ($setting->logo && file_exists(public_path('assets/img/' . $setting->logo))) {
