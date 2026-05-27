@@ -12,6 +12,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Master\CompanyMasterController;
 use App\Http\Controllers\Master\BranchMasterController;
 use App\Http\Controllers\Master\DoctorMasterController;
+use App\Http\Controllers\Master\GalleryMasterController;
 use App\Http\Controllers\ProductController;
 
 
@@ -82,6 +83,13 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     Route::get('doctors/{id}', [DoctorMasterController::class, 'show'])->name('doctors.show');
     Route::post('doctors/delete/{id}', [DoctorMasterController::class, 'destroy'])->name('doctors.destroy');
     Route::match(['get', 'post'], 'change_doctor_status', [DoctorMasterController::class, 'changeStatus']);
+
+    /* Gallery */
+    Route::get('galleries', [GalleryMasterController::class, 'index'])->name('galleries.index');
+    Route::post('galleries/images', [GalleryMasterController::class, 'storeImages'])->name('galleries.images.store');
+    Route::post('galleries/videos', [GalleryMasterController::class, 'storeVideo'])->name('galleries.videos.store');
+    Route::post('galleries/images/delete/{id}', [GalleryMasterController::class, 'destroyImage'])->name('galleries.images.destroy');
+    Route::post('galleries/videos/delete/{id}', [GalleryMasterController::class, 'destroyVideo'])->name('galleries.videos.destroy');
 
 
     /* Settings */

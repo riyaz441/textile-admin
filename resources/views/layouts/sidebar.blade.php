@@ -100,6 +100,14 @@
             </a>
         </li>
 
+        <!-- Gallery -->
+        <li class="menu-item {{ request()->is('galleries*') ? 'active' : '' }}">
+            <a href="{{ route('galleries.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-image-alt"></i>
+                <div class="text-truncate">Gallery</div>
+            </a>
+        </li>
+
         <!-- Settings -->
         <li
             class="menu-item {{ request()->is('email_configuration') || request()->is('payment_gateway_setting') || request()->is('web_setting') || request()->is('admin_setting') || request()->is('application-settings*') ? 'active open' : '' }}">
