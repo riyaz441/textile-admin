@@ -30,7 +30,7 @@ Route::view('/about', 'website/about')->name('about');
 Route::view('/blog', 'website/blog')->name('blog');
 Route::view('/blog/details', 'website/single-blog-details')->name('blog.details');
 
-/* ---------------- Login Routes ---------------- */
+/* ---------------- Admin Login Routes ---------------- */
 Route::view('/login', 'auth_login')->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::match(['get', 'post'], 'logout', [AuthController::class, 'logout']);

@@ -104,7 +104,7 @@
                                         </g>
                                     </svg>
                                 </span>
-                                <span class="app-brand-text demo text-heading fw-bold">Goldpost</span>
+                                <span class="app-brand-text demo text-heading fw-bold">BM Hospital</span>
                             </a>
                         </div>
                         <!-- /Logo -->
