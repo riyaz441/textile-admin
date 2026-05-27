@@ -8,6 +8,7 @@ use App\Http\Controllers\EmailConfigController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\WebsettingController;
 use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Master\CompanyMasterController;
 use App\Http\Controllers\Master\BranchMasterController;
 use App\Http\Controllers\Master\DoctorMasterController;
@@ -88,4 +89,5 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     Route::match(['get', 'post'], 'payment_gateway_setting', [PaymentController::class, 'pay']);
     Route::match(['get', 'post'], 'web_setting', [WebsettingController::class, 'setting']);
     Route::match(['get', 'post'], 'admin_setting', [WebsettingController::class, 'admin']);
+    Route::match(['get', 'post'], 'about_setting', [AboutController::class, 'setting']);
 });

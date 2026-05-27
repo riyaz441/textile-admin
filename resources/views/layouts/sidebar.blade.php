@@ -27,7 +27,7 @@
         </li>
 
         <!-- Master -->
-        <li
+        {{-- <li
             class="menu-item
     {{ request()->is(
         'companies*',
@@ -39,7 +39,7 @@
         'materials*',
         'gemstones*',
         'labors*',
-        'measurements*'
+        'measurements*',
     )
         ? 'active open'
         : '' }}
@@ -74,21 +74,29 @@
                     </ul>
                 </li>
             </ul>
-        </li>
+        </li> --}}
 
         <!-- Products -->
-        <li class="menu-item {{ request()->is('products*') ? 'active' : '' }}">
+        {{-- <li class="menu-item {{ request()->is('products*') ? 'active' : '' }}">
             <a href="{{ route('products.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-box"></i>
                 <div class="text-truncate">Products</div>
             </a>
-        </li>
+        </li> --}}
 
         <!-- Doctors -->
         <li class="menu-item {{ request()->is('doctors*') ? 'active' : '' }}">
             <a href="{{ route('doctors.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-plus-medical"></i>
                 <div class="text-truncate">Doctors</div>
+            </a>
+        </li>
+
+        <!-- About -->
+        <li class="menu-item {{ request()->is('about_setting') ? 'active' : '' }}">
+            <a href="{{ url('about_setting') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user-circle"></i>
+                <div class="text-truncate">About</div>
             </a>
         </li>
 
@@ -102,32 +110,32 @@
 
             <ul class="menu-sub">
                 <!--  Email Configuration -->
-                <li class="menu-item {{ request()->is('email_configuration') ? 'active' : '' }}">
+                {{-- <li class="menu-item {{ request()->is('email_configuration') ? 'active' : '' }}">
                     <a href="{{ url('email_configuration') }}" class="menu-link">
                         <div class="text-truncate" data-i18n="email_configuration">Email Configuration</div>
                     </a>
-                </li>
+                </li> --}}
 
                 <!--  Payment gateway setting -->
-                <li class="menu-item {{ request()->is('payment_gateway_setting') ? 'active' : '' }}">
+                {{-- <li class="menu-item {{ request()->is('payment_gateway_setting') ? 'active' : '' }}">
                     <a href="{{ url('payment_gateway_setting') }}" class="menu-link">
                         <div class="text-truncate" data-i18n="payment_gateway_setting">payment Gateway Setting</div>
                     </a>
-                </li>
+                </li> --}}
 
                 <!--  web setting -->
                 <li class="menu-item {{ request()->is('web_setting') ? 'active' : '' }}">
                     <a href="{{ url('web_setting') }}" class="menu-link">
-                        <div class="text-truncate" data-i18n="web_setting">Web Setting</div>
+                        <div class="text-truncate" data-i18n="web_setting">Header & Footer Setting</div>
                     </a>
                 </li>
 
                 <!--  admin setting -->
-                <li class="menu-item {{ request()->is('admin_setting') ? 'active' : '' }}">
+                {{-- <li class="menu-item {{ request()->is('admin_setting') ? 'active' : '' }}">
                     <a href="{{ url('admin_setting') }}" class="menu-link">
                         <div class="text-truncate" data-i18n="admin_setting">Admin Setting</div>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </li>
     </ul>
