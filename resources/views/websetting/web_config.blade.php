@@ -53,6 +53,17 @@
                             </div>
 
                             <div class="row mb-6">
+                                <label class="col-sm-3 col-form-label" for="landline_no">Landline No</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="landline_no" name="landline_no"
+                                        value="{{ old('landline_no', $setting->landline_no ?? '') }}" />
+                                    <span class="text-danger">
+                                        {{ $errors->first('landline_no') }}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="row mb-6">
                                 <label class="col-sm-3 col-form-label" for="basic-default-phone">Sales Email</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="sales_email" name="sales_email"
@@ -82,6 +93,36 @@
                                     <small class="text-muted">Enter comma-separated values. Maximum 6 values allowed.</small>
                                     <span class="text-danger d-block">
                                         {{ $errors->first('adding_work') }}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="row mb-6">
+                                <label class="col-sm-3 col-form-label">Opening Hours</label>
+                                <div class="col-sm-9">
+                                    @foreach ($weekDays as $day)
+                                        @php
+                                            $dayData = $openingHours[$day] ?? null;
+                                        @endphp
+                                        <div class="row mb-3 align-items-center">
+                                            <div class="col-md-3">
+                                                <label class="form-label mb-0">{{ $day }}</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control"
+                                                    name="opening_hours[{{ $day }}][from]" placeholder="6:00 am"
+                                                    value="{{ old('opening_hours.' . $day . '.from', $dayData->from_time ?? '') }}">
+                                            </div>
+                                            <div class="col-md-1 text-center">to</div>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control"
+                                                    name="opening_hours[{{ $day }}][to]" placeholder="2:00 pm"
+                                                    value="{{ old('opening_hours.' . $day . '.to', $dayData->to_time ?? '') }}">
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                    <span class="text-danger d-block">
+                                        {{ $errors->first('opening_hours') }}
                                     </span>
                                 </div>
                             </div>

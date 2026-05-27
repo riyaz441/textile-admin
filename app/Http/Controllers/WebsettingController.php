@@ -4,15 +4,33 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Websetting;
+use App\Models\OpeningHour;
 
 class WebsettingController extends Controller
 {
+    private array $weekDays = [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday',
+    ];
+
     public function setting(Request $request)
     {
         $setting = Websetting::first();
+        $openingHours = $setting
+            ? $setting->openingHours->keyBy('day_name')
+            : collect();
 
         if (!$request->isMethod('post')) {
-            return view('websetting/web_config', compact('setting'));
+            return view('websetting/web_config', [
+                'setting' => $setting,
+                'weekDays' => $this->weekDays,
+                'openingHours' => $openingHours,
+            ]);
         }
 
         $request->validate(
@@ -30,6 +48,10 @@ class WebsettingController extends Controller
                     'required',
                     'regex:/^(?:\+91|91|0)?[789]\d{9}$/',
                 ],
+                'landline_no' => [
+                    'nullable',
+                    'regex:/^[0-9+\-\s()]{6,20}$/',
+                ],
                 'sales_email' => [
                     'nullable',
                     'email',
@@ -37,6 +59,7 @@ class WebsettingController extends Controller
                 'address' => 'required|regex:/^(?!.*<\s*script\b[^>]*>).*$/i',
                 'logo' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
                 'fav_icon' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
+                'opening_hours' => ['nullable', 'array'],
                 'adding_work' => [
                     'nullable',
                     'string',
@@ -57,6 +80,7 @@ class WebsettingController extends Controller
                 'contact_email.email' => 'Enter a valid email address (e.g., example@domain.com)',
                 'contact_email.regex' => 'Enter a valid email address (e.g., example@domain.com)',
                 'contact_phone.regex' => 'This field is an invalid format',
+                'landline_no.regex' => 'This field is an invalid format',
                 'sales_email.email' => 'Enter a valid email address (e.g., example@domain.com)',
                 'address.regex' => 'This field is an invalid format',
                 'logo.max' => 'The field must not be greater than 1 MB',
@@ -69,6 +93,17 @@ class WebsettingController extends Controller
             ]
         );
 
+        foreach ($this->weekDays as $day) {
+            $from = trim((string) data_get($request->opening_hours, $day . '.from', ''));
+            $to = trim((string) data_get($request->opening_hours, $day . '.to', ''));
+
+            if (($from !== '' && $to === '') || ($from === '' && $to !== '')) {
+                return back()
+                    ->withErrors(['opening_hours' => "Please enter both from and to time for {$day}."])
+                    ->withInput();
+            }
+        }
+
         if (!$setting) {
             $setting = new Websetting();
         }
@@ -76,6 +111,7 @@ class WebsettingController extends Controller
         $setting->contact_person = $request->contact_person;
         $setting->contact_email = $request->contact_email;
         $setting->contact_phone = $request->contact_phone;
+        $setting->landline_no = $request->landline_no;
         $setting->sales_email = $request->sales_email;
         $setting->address = $request->address;
         $setting->adding_work = collect(explode(',', (string) $request->adding_work))
@@ -105,6 +141,23 @@ class WebsettingController extends Controller
         }
 
         $setting->save();
+
+        foreach ($this->weekDays as $index => $day) {
+            $from = trim((string) data_get($request->opening_hours, $day . '.from', ''));
+            $to = trim((string) data_get($request->opening_hours, $day . '.to', ''));
+
+            OpeningHour::updateOrCreate(
+                [
+                    'websetting_id' => $setting->id,
+                    'day_name' => $day,
+                ],
+                [
+                    'day_index' => $index + 1,
+                    'from_time' => $from !== '' ? $from : null,
+                    'to_time' => $to !== '' ? $to : null,
+                ]
+            );
+        }
 
         session()->flash('success', 'Updated successfully');
         return redirect('web_setting');

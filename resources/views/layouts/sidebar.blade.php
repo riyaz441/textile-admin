@@ -7,7 +7,7 @@
     <div class="app-brand demo">
         <a href="{{ url('dashboard') }}" class="app-brand-link">
             <img src="{{ asset('assets/img/' . $setting->logo) }}" alt="logo" width="" height="">
-            <span class="app-brand-text demo menu-text fw-bold ms-2">Gold Post</span>
+            <span class="app-brand-text demo menu-text fw-bold ms-2">BM Hospital</span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
