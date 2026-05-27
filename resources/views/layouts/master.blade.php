@@ -150,6 +150,7 @@
     <script src="{{ asset('assets/js/custom-js/company.js') }}"></script>
     <script src="{{ asset('assets/js/custom-js/branch.js') }}"></script>
     <script src="{{ asset('assets/js/custom-js/product.js') }}"></script>
+    <script src="{{ asset('assets/js/custom-js/doctor.js') }}"></script>
 
     <!-- endbuild -->
 

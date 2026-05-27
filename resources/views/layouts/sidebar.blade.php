@@ -84,6 +84,14 @@
             </a>
         </li>
 
+        <!-- Doctors -->
+        <li class="menu-item {{ request()->is('doctors*') ? 'active' : '' }}">
+            <a href="{{ route('doctors.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-plus-medical"></i>
+                <div class="text-truncate">Doctors</div>
+            </a>
+        </li>
+
         <!-- Settings -->
         <li
             class="menu-item {{ request()->is('email_configuration') || request()->is('payment_gateway_setting') || request()->is('web_setting') || request()->is('admin_setting') || request()->is('application-settings*') ? 'active open' : '' }}">

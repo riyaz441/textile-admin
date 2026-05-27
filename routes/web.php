@@ -10,6 +10,7 @@ use App\Http\Controllers\WebsettingController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\Master\CompanyMasterController;
 use App\Http\Controllers\Master\BranchMasterController;
+use App\Http\Controllers\Master\DoctorMasterController;
 use App\Http\Controllers\ProductController;
 
 
@@ -72,6 +73,14 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     Route::get('admin/products/{id}', [ProductController::class, 'show'])->name('products.show');
     Route::post('admin/products/delete/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
     Route::match(['get', 'post'], 'change_product_status', [ProductController::class, 'changeStatus']);
+
+    /* Doctors */
+    Route::get('doctors', [DoctorMasterController::class, 'index'])->name('doctors.index');
+    Route::get('doctors/form/{id?}', [DoctorMasterController::class, 'form'])->name('doctors.form');
+    Route::post('doctors/save/{id?}', [DoctorMasterController::class, 'save'])->name('doctors.save');
+    Route::get('doctors/{id}', [DoctorMasterController::class, 'show'])->name('doctors.show');
+    Route::post('doctors/delete/{id}', [DoctorMasterController::class, 'destroy'])->name('doctors.destroy');
+    Route::match(['get', 'post'], 'change_doctor_status', [DoctorMasterController::class, 'changeStatus']);
 
 
     /* Settings */
