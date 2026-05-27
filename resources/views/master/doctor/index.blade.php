@@ -58,7 +58,7 @@
                                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                             <i class="bx bx-dots-vertical-rounded"></i>
                                         </button>
-                                        <div class="dropdown-menu doctor-action-menu">
+                                        <div class="dropdown-menu doctor-action-menu company-action-menu">
                                             <a class="dropdown-item" href="javascript:void(0);"
                                                 onclick="location.href='{{ route('doctors.form', $doctor->doctor_id) }}'">
                                                 <i class="bx bx-edit-alt me-1"></i> Edit
@@ -95,7 +95,7 @@
                     Are you sure you want to delete this doctor?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Cancel</button>
                     <form id="deleteForm" method="POST" style="display:inline;">
                         @csrf
                         <button type="submit" class="btn btn-danger">Delete</button>

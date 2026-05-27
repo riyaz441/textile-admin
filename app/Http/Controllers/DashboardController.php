@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\About;
+use App\Models\Doctor;
+use App\Models\GalleryImage;
+use App\Models\GalleryVideo;
+use App\Models\Websetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -12,95 +16,108 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $data['masterCards'] = [
+        $doctorTotal = Doctor::count();
+        $doctorActive = Doctor::where('status', 'Active')->count();
+        $doctorInactive = Doctor::where('status', 'Inactive')->count();
+        $galleryImageCount = GalleryImage::count();
+        $galleryVideoCount = GalleryVideo::count();
+        $aboutCount = About::count();
+        $websettingCount = Websetting::count();
+
+        $user = Auth::user();
+        $profileScore = 0;
+        if ($user) {
+            $profileFields = [
+                $user->name ?? null,
+                $user->email ?? null,
+                $user->phone_number ?? null,
+                $user->address ?? null,
+                $user->profile ?? null,
+            ];
+
+            foreach ($profileFields as $field) {
+                if (!empty($field)) {
+                    $profileScore++;
+                }
+            }
+        }
+
+        $data['moduleCards'] = [
             [
-                'label' => 'Products',
-                'value' => Product::where('status', 'active')->count(),
-                'icon' => 'bx bx-store',
+                'label' => 'Dashboard Module',
+                'value' => 'Active',
+                'icon' => 'bx bx-home-smile',
                 'color' => 'info',
-                'note' => 'All locations',
+                'note' => 'Main entry point',
+                'url' => url('dashboard'),
+            ],
+            [
+                'label' => 'Doctor Module',
+                'value' => $doctorTotal,
+                'icon' => 'bx bx-plus-medical',
+                'color' => 'success',
+                'note' => $doctorActive . ' active / ' . $doctorInactive . ' inactive',
+                'url' => route('doctors.index'),
+            ],
+            [
+                'label' => 'About Module',
+                'value' => $aboutCount,
+                'icon' => 'bx bx-user-circle',
+                'color' => 'warning',
+                'note' => $aboutCount > 0 ? 'Configured' : 'Not configured',
+                'url' => url('about_setting'),
+            ],
+            [
+                'label' => 'Gallery Module',
+                'value' => $galleryImageCount + $galleryVideoCount,
+                'icon' => 'bx bx-image-alt',
+                'color' => 'primary',
+                'note' => $galleryImageCount . ' images / ' . $galleryVideoCount . ' videos',
+                'url' => route('galleries.index'),
+            ],
+            [
+                'label' => 'Header & Footer Setting',
+                'value' => $websettingCount,
+                'icon' => 'bx bx-cog',
+                'color' => 'dark',
+                'note' => $websettingCount > 0 ? 'Configured' : 'Not configured',
+                'url' => url('web_setting'),
+            ],
+            [
+                'label' => 'Profile Module',
+                'value' => $profileScore . '/5',
+                'icon' => 'bx bx-user',
+                'color' => 'secondary',
+                'note' => 'Profile completion',
+                'url' => route('profile'),
             ],
         ];
 
-        $data['kpis'] = [
+        $data['moduleStatus'] = [
             [
-                'label' => 'Monthly Sales',
-                'value' => '$48,250',
-                'trend' => '+12.4%',
-                'trend_class' => 'text-success',
-                'icon' => 'bx bx-dollar-circle',
-                'sub' => 'vs last month',
+                'module' => 'Doctor',
+                'status' => $doctorTotal > 0 ? 'Ready' : 'Needs data',
+                'details' => 'Manage doctor master entries',
             ],
             [
-                'label' => 'Orders Processed',
-                'value' => '1,284',
-                'trend' => '+5.1%',
-                'trend_class' => 'text-success',
-                'icon' => 'bx bx-cart',
-                'sub' => 'Last 30 days',
+                'module' => 'About',
+                'status' => $aboutCount > 0 ? 'Ready' : 'Needs data',
+                'details' => 'About section content',
             ],
             [
-                'label' => 'Pending Repairs',
-                'value' => '34',
-                'trend' => '-2.3%',
-                'trend_class' => 'text-danger',
-                'icon' => 'bx bx-wrench',
-                'sub' => 'Awaiting parts',
+                'module' => 'Gallery',
+                'status' => ($galleryImageCount + $galleryVideoCount) > 0 ? 'Ready' : 'Needs data',
+                'details' => 'Photos and videos for website',
             ],
             [
-                'label' => 'Average Ticket',
-                'value' => '$312',
-                'trend' => '+1.9%',
-                'trend_class' => 'text-success',
-                'icon' => 'bx bx-receipt',
-                'sub' => 'Per order',
-            ],
-        ];
-
-        $data['activity'] = [
-            [
-                'title' => 'New supplier onboarded',
-                'meta' => 'Radiant Gems Co.',
-                'time' => '2 hours ago',
+                'module' => 'Header & Footer Setting',
+                'status' => $websettingCount > 0 ? 'Ready' : 'Needs setup',
+                'details' => 'Website logo and contact settings',
             ],
             [
-                'title' => 'Branch inventory synced',
-                'meta' => 'Downtown HQ',
-                'time' => 'Today, 9:15 AM',
-            ],
-            [
-                'title' => 'Material prices updated',
-                'meta' => 'Gold 18K, Silver',
-                'time' => 'Yesterday, 4:40 PM',
-            ],
-            [
-                'title' => 'Gemstone batch received',
-                'meta' => 'Emerald, Sapphire',
-                'time' => 'Yesterday, 11:05 AM',
-            ],
-        ];
-
-        $data['topBranches'] = [
-            [
-                'name' => 'Downtown HQ',
-                'orders' => 412,
-                'revenue' => '$24.3k',
-                'growth' => '+8%',
-                'growth_class' => 'text-success',
-            ],
-            [
-                'name' => 'Uptown Studio',
-                'orders' => 318,
-                'revenue' => '$19.1k',
-                'growth' => '+3%',
-                'growth_class' => 'text-success',
-            ],
-            [
-                'name' => 'Riverside',
-                'orders' => 205,
-                'revenue' => '$11.7k',
-                'growth' => '-1%',
-                'growth_class' => 'text-danger',
+                'module' => 'Profile',
+                'status' => $profileScore >= 3 ? 'Ready' : 'Update recommended',
+                'details' => 'Admin profile and security',
             ],
         ];
 

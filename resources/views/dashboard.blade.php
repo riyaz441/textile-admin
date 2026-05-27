@@ -5,13 +5,13 @@
         <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
             <div>
                 <h4 class="mb-1">Dashboard</h4>
-                <p class="text-muted mb-0">Master data overview and operational snapshot</p>
+                <p class="text-muted mb-0">Active modules overview</p>
             </div>
             <div class="badge bg-label-primary">Updated {{ now()->format('M d, Y') }}</div>
         </div>
 
         <div class="row g-4 mb-4">
-            @foreach ($masterCards as $card)
+            @foreach ($moduleCards as $card)
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="card h-100">
                         <div class="card-body">
@@ -23,32 +23,7 @@
                             </div>
                             <h4 class="mb-1">{{ $card['value'] }}</h4>
                             <p class="mb-0 text-muted">{{ $card['label'] }}</p>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-
-        <div class="row g-4 mb-4">
-            @foreach ($kpis as $kpi)
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between mb-3">
-                                <span class="text-muted">{{ $kpi['label'] }}</span>
-                                <span class="badge bg-label-secondary p-2">
-                                    <i class="bx {{ $kpi['icon'] }}"></i>
-                                </span>
-                            </div>
-                            <div class="d-flex align-items-end justify-content-between">
-                                <div>
-                                    <h4 class="mb-1">{{ $kpi['value'] }}</h4>
-                                    <small class="text-muted">{{ $kpi['sub'] }}</small>
-                                </div>
-                                <span class="fw-medium {{ $kpi['trend_class'] }}">
-                                    <i class="bx bx-trending-up"></i> {{ $kpi['trend'] }}
-                                </span>
-                            </div>
+                            <a href="{{ $card['url'] }}" class="stretched-link" aria-label="{{ $card['label'] }}"></a>
                         </div>
                     </div>
                 </div>
@@ -59,22 +34,29 @@
             <div class="col-12 col-lg-7">
                 <div class="card h-100">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                        <h5 class="mb-0">Recent Activity</h5>
-                        <span class="text-muted small">Last 48 hours</span>
+                        <h5 class="mb-0">Module Status</h5>
+                        <span class="text-muted small">Current data check</span>
                     </div>
                     <div class="card-body">
-                        <div class="list-group list-group-flush">
-                            @foreach ($activity as $item)
-                                <div class="list-group-item px-0">
-                                    <div class="d-flex align-items-start justify-content-between">
-                                        <div>
-                                            <h6 class="mb-1">{{ $item['title'] }}</h6>
-                                            <small class="text-muted">{{ $item['meta'] }}</small>
-                                        </div>
-                                        <small class="text-muted">{{ $item['time'] }}</small>
-                                    </div>
-                                </div>
-                            @endforeach
+                        <div class="table-responsive">
+                            <table class="table table-borderless mb-0">
+                                <thead>
+                                    <tr class="text-muted">
+                                        <th>Module</th>
+                                        <th>Status</th>
+                                        <th>Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($moduleStatus as $item)
+                                        <tr>
+                                            <td class="fw-medium">{{ $item['module'] }}</td>
+                                            <td>{{ $item['status'] }}</td>
+                                            <td class="text-muted">{{ $item['details'] }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -82,33 +64,18 @@
             <div class="col-12 col-lg-5">
                 <div class="card h-100">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                        <h5 class="mb-0">Top Branches</h5>
-                        <span class="text-muted small">By revenue</span>
+                        <h5 class="mb-0">Quick Access</h5>
+                        <span class="text-muted small">Active modules</span>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-borderless mb-0">
-                                <thead>
-                                    <tr class="text-muted">
-                                        <th>Branch</th>
-                                        <th class="text-end">Orders</th>
-                                        <th class="text-end">Revenue</th>
-                                        <th class="text-end">Growth</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($topBranches as $branch)
-                                        <tr>
-                                            <td class="fw-medium">{{ $branch['name'] }}</td>
-                                            <td class="text-end">{{ $branch['orders'] }}</td>
-                                            <td class="text-end">{{ $branch['revenue'] }}</td>
-                                            <td class="text-end {{ $branch['growth_class'] }}">{{ $branch['growth'] }}</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                        <div class="list-group list-group-flush">
+                            <a href="{{ url('dashboard') }}" class="list-group-item list-group-item-action px-0">Dashboard</a>
+                            <a href="{{ route('doctors.index') }}" class="list-group-item list-group-item-action px-0">Doctor</a>
+                            <a href="{{ url('about_setting') }}" class="list-group-item list-group-item-action px-0">About</a>
+                            <a href="{{ route('galleries.index') }}" class="list-group-item list-group-item-action px-0">Gallery</a>
+                            <a href="{{ url('web_setting') }}" class="list-group-item list-group-item-action px-0">Header & Footer Setting</a>
+                            <a href="{{ route('profile') }}" class="list-group-item list-group-item-action px-0">Profile</a>
                         </div>
-                        <div class="mt-3 text-muted small">Demo data for layout preview.</div>
                     </div>
                 </div>
             </div>
