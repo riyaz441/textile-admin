@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 08, 2026 at 02:09 PM
+-- Host: 127.0.0.1
+-- Generation Time: May 27, 2026 at 03:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,8 +18,28 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `textile-admin`
+-- Database: `textile_admin`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `abouts`
+--
+
+CREATE TABLE `abouts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `abouts`
+--
+
+INSERT INTO `abouts` (`id`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'about_1779880905.png', '2026-05-27 05:51:45', '2026-05-27 05:51:45');
 
 -- --------------------------------------------------------
 
@@ -93,6 +113,31 @@ CREATE TABLE `companies` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `doctors`
+--
+
+CREATE TABLE `doctors` (
+  `doctor_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `mobile_no` varchar(20) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `priority` tinyint(1) NOT NULL DEFAULT 0,
+  `status` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `doctors`
+--
+
+INSERT INTO `doctors` (`doctor_id`, `name`, `mobile_no`, `email`, `image`, `priority`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'admin', '9685758584', NULL, 'assets/doctors/1779879323_doctor.png', 1, 'Active', '2026-05-27 05:25:23', '2026-05-27 07:30:23');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `email_configs`
 --
 
@@ -130,6 +175,47 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gallery_images`
+--
+
+CREATE TABLE `gallery_images` (
+  `gallery_image_id` bigint(20) UNSIGNED NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `gallery_images`
+--
+
+INSERT INTO `gallery_images` (`gallery_image_id`, `image`, `created_at`, `updated_at`) VALUES
+(3, 'assets/gallery/images/1779885392_6a16e55029949.png', '2026-05-27 07:06:32', '2026-05-27 07:06:32');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gallery_videos`
+--
+
+CREATE TABLE `gallery_videos` (
+  `gallery_video_id` bigint(20) UNSIGNED NOT NULL,
+  `youtube_url` varchar(255) DEFAULT NULL,
+  `video_file` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `gallery_videos`
+--
+
+INSERT INTO `gallery_videos` (`gallery_video_id`, `youtube_url`, `video_file`, `created_at`, `updated_at`) VALUES
+(1, 'https://youtu.be/_UpqnxAmdv4', NULL, '2026-05-27 07:07:22', '2026-05-27 07:07:22');
 
 -- --------------------------------------------------------
 
@@ -193,7 +279,44 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (8, '2026_02_02_000001_create_branches_table', 1),
 (10, '2026_03_04_112058_create_products_table', 2),
 (11, '2026_03_04_120000_add_category_to_products_table', 3),
-(12, '2026_03_08_000000_add_slug_to_products_table', 4);
+(12, '2026_03_08_000000_add_slug_to_products_table', 4),
+(13, '2026_05_27_000001_add_adding_work_to_websettings_table', 4),
+(14, '2026_05_27_000002_add_landline_no_to_websettings_table', 5),
+(15, '2026_05_27_000003_create_opening_hours_table', 5),
+(16, '2026_05_27_000004_create_doctors_table', 6),
+(17, '2026_05_27_111745_create_abouts_table', 7),
+(18, '2026_05_27_120000_create_gallery_images_table', 8),
+(19, '2026_05_27_120100_create_gallery_videos_table', 8);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `opening_hours`
+--
+
+CREATE TABLE `opening_hours` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `websetting_id` bigint(20) UNSIGNED NOT NULL,
+  `day_index` tinyint(3) UNSIGNED NOT NULL,
+  `day_name` varchar(20) NOT NULL,
+  `from_time` varchar(20) DEFAULT NULL,
+  `to_time` varchar(20) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `opening_hours`
+--
+
+INSERT INTO `opening_hours` (`id`, `websetting_id`, `day_index`, `day_name`, `from_time`, `to_time`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 'Monday', '10:00 am', '8:00 pm', '2026-05-27 04:45:45', '2026-05-27 04:45:45'),
+(2, 1, 2, 'Tuesday', '10:00 am', '8:00 pm', '2026-05-27 04:45:45', '2026-05-27 04:45:45'),
+(3, 1, 3, 'Wednesday', '10:00 am', '8:00 pm', '2026-05-27 04:45:45', '2026-05-27 04:45:45'),
+(4, 1, 4, 'Thursday', '10:00 am', '8:00 pm', '2026-05-27 04:45:45', '2026-05-27 04:45:45'),
+(5, 1, 5, 'Friday', '10:00 am', '8:00 pm', '2026-05-27 04:45:45', '2026-05-27 04:45:45'),
+(6, 1, 6, 'Saturday', '10:00 am', '8:00 pm', '2026-05-27 04:45:45', '2026-05-27 04:45:45'),
+(7, 1, 7, 'Sunday', '10:00 am', '8:00 pm', '2026-05-27 04:45:45', '2026-05-27 04:45:45');
 
 -- --------------------------------------------------------
 
@@ -264,12 +387,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `sku`, `slug`, `category`, `description`, `short_description`, `price`, `cost_price`, `discount_percentage`, `image`, `image_1`, `image_2`, `image_3`, `stock_quantity`, `min_stock_level`, `rating`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Yidarton Women\'s Comfy', 'Men-001', 'yidarton-womens-comfy', 'male', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,', 750.00, 1150.00, 20.00, 'assets/products/1772951273_image.jpg', 'assets/products/1772956407_image_1.jpg', 'assets/products/1772962671_image_2.jpg', 'assets/products/1772962671_image_3.jpg', 50, 10, 4.00, 'Active', '2026-03-08 00:57:53', '2026-03-08 04:07:51'),
-(2, 'Gildan Men\'s Crew T-Shirt', 'women-001', 'gildan-mens-crew-t-shirt', 'female', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,', 550.00, 1200.00, 15.00, 'assets/products/1772951474_image.jpg', 'assets/products/1772956288_image_1.jpg', NULL, NULL, 25, 10, 0.00, 'Active', '2026-03-08 01:01:14', '2026-03-08 03:46:14'),
-(3, 'mens Tops Color', 'Men-002', 'mens-tops-color', 'male', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,', 350.00, 500.00, 2.00, 'assets/products/1772951582_image.jpg', 'assets/products/1772956379_image_1.jpg', NULL, NULL, 150, 50, 4.00, 'Active', '2026-03-08 01:03:02', '2026-03-08 03:45:23'),
-(4, 'Long Sleeve Leopard T-Shirt', 'women-002', 'long-sleeve-leopard-t-shirt', 'female', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,', 650.00, 850.00, 10.00, 'assets/products/1772951666_image.jpg', 'assets/products/1772956214_image_1.jpg', NULL, NULL, 250, 10, 4.00, 'Active', '2026-03-08 01:04:26', '2026-03-08 03:46:12'),
-(5, 'Causal V-Neck Soft Raglan', 'women-003', 'causal-v-neck-soft-raglan', 'female', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,', 850.00, 1120.00, 15.00, 'assets/products/1772955991_image.jpg', 'assets/products/1772955991_image_1.jpg', NULL, NULL, 25, 5, 3.00, 'Active', '2026-03-08 01:32:53', '2026-03-08 03:46:11'),
-(6, 'Hanes Men\'s Pullover', 'women-004', 'hanes-mens-pullover', 'female', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,', 650.00, 1200.00, 30.00, 'assets/products/1772956153_image.jpg', 'assets/products/1772956153_image_1.jpg', NULL, NULL, 100, 20, 3.00, 'Active', '2026-03-08 01:46:47', '2026-03-08 03:46:09');
+(2, 'Shirt', 'PRD-001', 'manshirt', 'male', 'Description', NULL, 8000.00, NULL, 0.00, 'assets/products/1772717298_image.jpg', NULL, NULL, NULL, 4, 0, 5.00, 'Active', '2026-03-05 07:58:18', '2026-05-27 04:12:50');
 
 -- --------------------------------------------------------
 
@@ -291,8 +409,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('VbKoVAw1T7W0ChUto1UWLId82O7j3N8Nlp5cZQTS', NULL, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiaGFJc29aZHFUQW43N0VnSFdWalNVY21qU1ZzNFdEdUxSUU1NSnYyTiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9kdWN0cy9jYXVzYWwtdi1uZWNrLXNvZnQtcmFnbGFuIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1772975291),
-('zEZyqZ52sdTWLdPGTSLvuVinl1jXXkSGbb11SEvx', NULL, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiamR0VUVqRktpWXhtcVVEUnRMNnhBS1BPYnFFVExnWjdOR1lWUVgxQSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1772966543);
+('JTo58X9xE7yYxcZ2YjvcT4wLJj5NVsDa09OXOcqn', 1, '192.168.1.139', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoid1FuamF5elloN2JJaDNCMFBab0JPZlZ5eFBBUEhiT1dmeEd1RXhaNCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly8xOTIuMTY4LjEuMTM5OjgwMDEvd2ViX3NldHRpbmciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTIkc1VGenNYUFlkYVAyeXltRnNxRW5nLkcyZ3pqVHFEbVlHcXFtckNxMXAuaGNiblpMMHZoSjIiO30=', 1779886885);
 
 -- --------------------------------------------------------
 
@@ -331,8 +448,10 @@ CREATE TABLE `websettings` (
   `contact_person` varchar(100) NOT NULL,
   `contact_email` varchar(255) NOT NULL,
   `contact_phone` varchar(255) NOT NULL,
+  `landline_no` varchar(20) DEFAULT NULL,
   `sales_email` varchar(150) DEFAULT NULL,
   `address` text NOT NULL,
+  `adding_work` text DEFAULT NULL,
   `logo` varchar(100) DEFAULT NULL,
   `fav_icon` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -343,12 +462,18 @@ CREATE TABLE `websettings` (
 -- Dumping data for table `websettings`
 --
 
-INSERT INTO `websettings` (`id`, `site_name`, `site_url`, `contact_person`, `contact_email`, `contact_phone`, `sales_email`, `address`, `logo`, `fav_icon`, `created_at`, `updated_at`) VALUES
-(1, 'GoldPost', 'http://localhost', 'admin', 'admin@goldpost.com', '9854685484', 'goldpostsales@gmail.com', '123 Main Street, City', 'logo.png', 'fav_icon.png', '2026-03-04 09:13:48', '2026-03-04 09:13:48');
+INSERT INTO `websettings` (`id`, `site_name`, `site_url`, `contact_person`, `contact_email`, `contact_phone`, `landline_no`, `sales_email`, `address`, `adding_work`, `logo`, `fav_icon`, `created_at`, `updated_at`) VALUES
+(1, 'GoldPost', 'http://localhost', 'admin', 'sarmeshkhan@yahoo.com', '9840716034', '+0452-4200888', NULL, 'Ansari Nagar West cross street,Mahaboobpalayam,Madurai - 625016.', 'General Consultation, Orthopedic Care, Emergency Support, Health Awareness Camps, Patient-Friendly Treatment, Affordable Healthcare', 'logo.png', 'fav_icon.png', '2026-03-04 09:13:48', '2026-05-27 04:45:45');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `abouts`
+--
+ALTER TABLE `abouts`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `branches`
@@ -378,6 +503,12 @@ ALTER TABLE `companies`
   ADD UNIQUE KEY `companies_company_code_unique` (`company_code`);
 
 --
+-- Indexes for table `doctors`
+--
+ALTER TABLE `doctors`
+  ADD PRIMARY KEY (`doctor_id`);
+
+--
 -- Indexes for table `email_configs`
 --
 ALTER TABLE `email_configs`
@@ -389,6 +520,18 @@ ALTER TABLE `email_configs`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `gallery_images`
+--
+ALTER TABLE `gallery_images`
+  ADD PRIMARY KEY (`gallery_image_id`);
+
+--
+-- Indexes for table `gallery_videos`
+--
+ALTER TABLE `gallery_videos`
+  ADD PRIMARY KEY (`gallery_video_id`);
 
 --
 -- Indexes for table `jobs`
@@ -408,6 +551,13 @@ ALTER TABLE `job_batches`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `opening_hours`
+--
+ALTER TABLE `opening_hours`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `opening_hours_websetting_id_day_name_unique` (`websetting_id`,`day_name`);
 
 --
 -- Indexes for table `password_reset_tokens`
@@ -455,6 +605,12 @@ ALTER TABLE `websettings`
 --
 
 --
+-- AUTO_INCREMENT for table `abouts`
+--
+ALTER TABLE `abouts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `branches`
 --
 ALTER TABLE `branches`
@@ -465,6 +621,12 @@ ALTER TABLE `branches`
 --
 ALTER TABLE `companies`
   MODIFY `company_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `doctors`
+--
+ALTER TABLE `doctors`
+  MODIFY `doctor_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `email_configs`
@@ -479,6 +641,18 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `gallery_images`
+--
+ALTER TABLE `gallery_images`
+  MODIFY `gallery_image_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `gallery_videos`
+--
+ALTER TABLE `gallery_videos`
+  MODIFY `gallery_video_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
@@ -488,7 +662,13 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `opening_hours`
+--
+ALTER TABLE `opening_hours`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `payments`
@@ -500,7 +680,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -513,6 +693,16 @@ ALTER TABLE `users`
 --
 ALTER TABLE `websettings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `opening_hours`
+--
+ALTER TABLE `opening_hours`
+  ADD CONSTRAINT `opening_hours_websetting_id_foreign` FOREIGN KEY (`websetting_id`) REFERENCES `websettings` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
